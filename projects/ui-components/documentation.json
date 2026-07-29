@@ -9,10 +9,12 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-ea6108b801acb5621db5973fe309e7a002e2c83dc56ecbb0c1844d5bc6b4ab8b0f11bc2c57f7b92563acc4607e36e2de7eb45f570e6a880d5f2bf32a64026fcb",
+            "id": "component-ButtonComponent-3490b5adb89d22482f2e7802e0e3a896dacdac1cc512b707a82c18ddeb68b5d3043e2ad7d985cd37a7b7f7bdcf92c293c09a1ce7800dbe1ec630f3206cbe3f70",
             "file": "projects/ui-components/src/stories/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
-            "encapsulation": [],
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
@@ -22,92 +24,123 @@
                 "./button.css"
             ],
             "styles": [],
-            "template": "<button\n  type=\"button\"\n  (click)=\"onClick.emit($event)\"\n  [ngClass]=\"classes\"\n  [ngStyle]=\"{ 'background-color': backgroundColor }\"\n>\n  {{ label }}\n</button>\n",
-            "templateUrl": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
             "templateVariables": [],
             "viewProviders": [],
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "coverageIgnore": false,
                     "name": "backgroundColor",
+                    "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\nWhat background color to use",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 27,
                     "type": "string",
-                    "decorators": []
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "required": false
                 },
                 {
+                    "name": "disabled",
                     "coverageIgnore": false,
-                    "name": "label",
-                    "defaultValue": "'Button'",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "pos": 795,
-                            "end": 808,
-                            "kind": 328,
-                            "id": 0,
-                            "flags": 16842752,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "tagName": {
-                                "pos": 796,
-                                "end": 804,
-                                "kind": 80,
-                                "id": 0,
-                                "flags": 16842752,
-                                "transformFlags": 0,
-                                "escapedText": "required"
-                            },
-                            "comment": ""
-                        }
-                    ],
-                    "rawdescription": "\n\nButton contents\n\n",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 39,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "coverageIgnore": false,
-                    "name": "primary",
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\nIs this the principal call to action on the page?",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 23,
                     "type": "boolean",
-                    "decorators": []
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n",
+                    "required": false
                 },
                 {
+                    "name": "icon",
                     "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "loading",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "primary",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
                     "name": "size",
+                    "coverageIgnore": false,
                     "defaultValue": "'medium'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\nHow large should the button be?",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 31,
                     "type": "\"small\" | \"medium\" | \"large\"",
-                    "decorators": []
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": false
                 }
             ],
             "outputsClass": [
                 {
                     "name": "onClick",
                     "coverageIgnore": false,
-                    "defaultValue": "new EventEmitter<Event>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\nOptional click handler",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 43,
-                    "type": "EventEmitter"
+                    "type": "Event",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "rawdescription": "\n",
+                    "required": false
                 }
             ],
             "propertiesClass": [],
@@ -118,47 +151,25 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [
-                {
-                    "name": "CommonModule",
-                    "type": "module"
-                }
-            ],
+            "imports": [],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { CommonModule } from '@angular/common';\nimport { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  imports: [CommonModule],\n  template: `\n    <button\n      type=\"button\"\n      (click)=\"onClick.emit($event)\"\n      [ngClass]=\"classes\"\n      [ngStyle]=\"{ 'background-color': backgroundColor }\"\n    >\n      {{ label }}\n    </button>\n  `,\n  styleUrls: ['./button.css'],\n})\nexport class ButtonComponent {\n  /** Is this the principal call to action on the page? */\n  @Input()\n  primary = false;\n\n  /** What background color to use */\n  @Input()\n  backgroundColor?: string;\n\n  /** How large should the button be? */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /** Optional click handler */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, input, output, computed, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class ButtonComponent {\n  primary = input<boolean>(false);\n  backgroundColor = input<string>();\n  size = input<'small' | 'medium' | 'large'>('medium');\n  label = input<string>('Button');\n  disabled = input<boolean>(false);\n  loading = input<boolean>(false);\n  icon = input<string>(); // e.g. 'search', 'check', 'arrow-right', 'download', 'plus'\n\n  onClick = output<Event>();\n\n  /** @ignore */\n  protected readonly buttonClasses = computed(() => {\n    const sizeClass = `storybook-button--${this.size()}`;\n    const modeClass = this.primary() ? 'storybook-button--primary' : 'storybook-button--secondary';\n    const loadingClass = this.loading() ? 'storybook-button--loading' : '';\n    return ['storybook-button', sizeClass, modeClass, loadingClass].filter(Boolean).join(' ');\n  });\n\n  /** @ignore */\n  protected readonly svgIcon = computed(() => {\n    const name = this.icon();\n    if (!name) return '';\n    // Let's provide a set of beautiful SVG icons\n    const icons: Record<string, string> = {\n      'search': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line></svg>',\n      'check': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg>',\n      'arrow-right': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line><polyline points=\"12 5 19 12 12 19\"></polyline></svg>',\n      'download': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path><polyline points=\"7 10 12 15 17 10\"></polyline><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"></line></svg>',\n      'plus': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line></svg>'\n    };\n    return icons[name] || '';\n  });\n\n  /** @ignore */\n  protected handleClick(event: Event) {\n    if (!this.disabled() && !this.loading()) {\n      this.onClick.emit(event);\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".storybook-button {\n  display: inline-block;\n  cursor: pointer;\n  border: 0;\n  border-radius: 3em;\n  font-weight: 700;\n  line-height: 1;\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n}\n.storybook-button--primary {\n  background-color: #555ab9;\n  color: white;\n}\n.storybook-button--secondary {\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n  background-color: transparent;\n  color: #333;\n}\n.storybook-button--small {\n  padding: 10px 16px;\n  font-size: 12px;\n}\n.storybook-button--medium {\n  padding: 11px 20px;\n  font-size: 14px;\n}\n.storybook-button--large {\n  padding: 12px 24px;\n  font-size: 16px;\n}\n",
+                    "data": ".storybook-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  cursor: pointer;\n  border: 0;\n  border-radius: 8px; /* Premium modern rounded-lg style instead of pill shape */\n  font-weight: 600;\n  line-height: 1.2;\n  font-family: 'Inter', 'Outfit', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);\n  outline: none;\n  position: relative;\n  overflow: hidden;\n}\n\n.storybook-button:active {\n  transform: scale(0.97);\n}\n\n.storybook-button:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n  transform: none !important;\n  box-shadow: none !important;\n}\n\n/* Primary style: Vibrant Indigo Gradient */\n.storybook-button--primary {\n  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);\n  color: #ffffff;\n  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);\n}\n\n.storybook-button--primary:hover:not(:disabled) {\n  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%); /* Elegant shift on hover */\n  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.4);\n}\n\n/* Secondary style: Clean Glassmorphic Border */\n.storybook-button--secondary {\n  border: 1.5px solid #e2e8f0;\n  background-color: #ffffff;\n  color: #1e293b;\n  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);\n}\n\n.storybook-button--secondary:hover:not(:disabled) {\n  background-color: #f8fafc;\n  border-color: #cbd5e1;\n  color: #0f172a;\n}\n\n/* Sizes */\n.storybook-button--small {\n  padding: 8px 14px;\n  font-size: 13px;\n}\n\n.storybook-button--medium {\n  padding: 10px 18px;\n  font-size: 14px;\n}\n\n.storybook-button--large {\n  padding: 12px 24px;\n  font-size: 16px;\n}\n\n/* Loading Spinner */\n.storybook-button__spinner {\n  display: inline-block;\n  width: 14px;\n  height: 14px;\n  border: 2px solid currentColor;\n  border-top-color: transparent;\n  border-radius: 50%;\n  animation: storybook-button-spin 0.6s linear infinite;\n}\n\n@keyframes storybook-button-spin {\n  to {\n    transform: rotate(360deg);\n  }\n}\n\n/* Icon placement */\n.storybook-button__icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 16px;\n  height: 16px;\n}\n\n.storybook-button__icon svg {\n  width: 100%;\n  height: 100%;\n}\n",
                     "styleUrl": "./button.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 45,
-                        "rawdescription": "\n",
-                        "description": ""
-                    }
-                }
-            },
             "relationships": {
                 "incoming": [],
-                "outgoing": [
-                    {
-                        "name": "CommonModule",
-                        "type": "module"
-                    }
-                ]
-            }
+                "outgoing": []
+            },
+            "templateData": "<button\n  type=\"button\"\n  [disabled]=\"disabled() || loading()\"\n  (click)=\"handleClick($event)\"\n  [class]=\"buttonClasses()\"\n  [style.background-color]=\"backgroundColor()\"\n>\n  @if (loading()) {\n    <span class=\"storybook-button__spinner\"></span>\n  }\n  \n  @if (icon() && !loading()) {\n    <span class=\"storybook-button__icon\" [innerHTML]=\"svgIcon()\"></span>\n  }\n  \n  <span class=\"storybook-button__label\">{{ label() }}</span>\n</button>\n"
         },
         {
             "name": "UiComponents",
@@ -209,6 +220,28 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "Disabled",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
+            },
+            {
+                "name": "IconAndLoading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n}"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -217,7 +250,29 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+            },
+            {
+                "name": "Loading",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n}"
+            },
+            {
+                "name": "Medium",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n}"
             },
             {
                 "name": "meta",
@@ -228,7 +283,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ButtonComponent>",
-                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
+                "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n    icon: {\n      control: 'select',\n      options: ['search', 'check', 'arrow-right', 'download', 'plus', ''],\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n    },\n  },\n  args: { onClick: fn() },\n}"
             },
             {
                 "name": "preview",
@@ -250,7 +305,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -261,7 +316,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n}"
             },
             {
                 "name": "Small",
@@ -272,7 +327,29 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+            },
+            {
+                "name": "WithIcon",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n}"
+            },
+            {
+                "name": "WithIconPrimary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/button.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n}"
             }
         ],
         "functions": [],
@@ -295,6 +372,28 @@
         "groupedVariables": {
             "projects/ui-components/src/stories/button.stories.ts": [
                 {
+                    "name": "Disabled",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
+                },
+                {
+                    "name": "IconAndLoading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n}"
+                },
+                {
                     "name": "Large",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
@@ -303,7 +402,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                },
+                {
+                    "name": "Loading",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n}"
+                },
+                {
+                    "name": "Medium",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -314,7 +435,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Meta<ButtonComponent>",
-                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n  },\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\n  args: { onClick: fn() },\n}"
+                    "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n    icon: {\n      control: 'select',\n      options: ['search', 'check', 'arrow-right', 'download', 'plus', ''],\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n    },\n  },\n  args: { onClick: fn() },\n}"
                 },
                 {
                     "name": "Primary",
@@ -325,7 +446,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n}"
                 },
                 {
                     "name": "Secondary",
@@ -336,7 +457,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n}"
                 },
                 {
                     "name": "Small",
@@ -347,7 +468,29 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                },
+                {
+                    "name": "WithIcon",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n}"
+                },
+                {
+                    "name": "WithIconPrimary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n}"
                 }
             ],
             "projects/ui-components/.storybook/preview.ts": [
@@ -390,7 +533,7 @@
         "children": []
     },
     "coverage": {
-        "count": 9,
+        "count": 0,
         "status": "low",
         "files": [
             {
@@ -417,9 +560,29 @@
                 "type": "component",
                 "linktype": "component",
                 "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Disabled",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "IconAndLoading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
             },
             {
                 "filePath": "projects/ui-components/src/stories/button.stories.ts",
@@ -427,6 +590,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Loading",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Medium",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
@@ -467,6 +650,26 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIcon",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithIconPrimary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

@@ -12,38 +12,93 @@ const meta: Meta<ButtonComponent> = {
     backgroundColor: {
       control: 'color',
     },
+    icon: {
+      control: 'select',
+      options: ['search', 'check', 'arrow-right', 'download', 'plus', ''],
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
   },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
   args: { onClick: fn() },
 };
 
 export default meta;
 type Story = StoryObj<ButtonComponent>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
+// Basic Stories
 export const Primary: Story = {
   args: {
     primary: true,
-    label: 'Button',
+    label: 'Primary Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
+    label: 'Secondary Button',
+  },
+};
+
+// Sizes
+export const Small: Story = {
+  args: {
+    size: 'small',
+    label: 'Small Button',
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    size: 'medium',
+    label: 'Medium Button',
   },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
-    label: 'Button',
+    label: 'Large Button',
   },
 };
 
-export const Small: Story = {
+// State Stories
+export const Disabled: Story = {
   args: {
-    size: 'small',
-    label: 'Button',
+    disabled: true,
+    label: 'Disabled Button',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    loading: true,
+    label: 'Loading Button',
+  },
+};
+
+// Icon Stories
+export const WithIcon: Story = {
+  args: {
+    icon: 'search',
+    label: 'Search',
+  },
+};
+
+export const WithIconPrimary: Story = {
+  args: {
+    primary: true,
+    icon: 'arrow-right',
+    label: 'Get Started',
+  },
+};
+
+export const IconAndLoading: Story = {
+  args: {
+    primary: true,
+    icon: 'check',
+    loading: true,
+    label: 'Submitting',
   },
 };

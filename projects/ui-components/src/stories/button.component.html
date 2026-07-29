@@ -1,0 +1,17 @@
+<button
+  type="button"
+  [disabled]="disabled() || loading()"
+  (click)="handleClick($event)"
+  [class]="buttonClasses()"
+  [style.background-color]="backgroundColor()"
+>
+  @if (loading()) {
+    <span class="storybook-button__spinner"></span>
+  }
+  
+  @if (icon() && !loading()) {
+    <span class="storybook-button__icon" [innerHTML]="svgIcon()"></span>
+  }
+  
+  <span class="storybook-button__label">{{ label() }}</span>
+</button>
