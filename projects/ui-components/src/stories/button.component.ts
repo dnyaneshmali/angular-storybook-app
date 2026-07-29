@@ -20,10 +20,20 @@ export class ButtonComponent {
 
   /** @ignore */
   protected readonly buttonClasses = computed(() => {
-    const sizeClass = `storybook-button--${this.size()}`;
-    const modeClass = this.primary() ? 'storybook-button--primary' : 'storybook-button--secondary';
-    const loadingClass = this.loading() ? 'storybook-button--loading' : '';
-    return ['storybook-button', sizeClass, modeClass, loadingClass].filter(Boolean).join(' ');
+    const common = 'inline-flex items-center justify-center gap-2 cursor-pointer font-sans font-semibold rounded-lg transition-all duration-200 active:scale-97 outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none';
+    
+    const sizeMap = {
+      small: 'px-3.5 py-2 text-xs',
+      medium: 'px-4.5 py-2.5 text-sm',
+      large: 'px-6 py-3 text-base'
+    };
+    const sizeClass = sizeMap[this.size()];
+
+    const modeClass = this.primary()
+      ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/25 hover:bg-brand-primary-hover hover:shadow-lg'
+      : 'border border-brand-secondary-border bg-white text-brand-secondary shadow-sm hover:bg-slate-50 hover:border-slate-300';
+
+    return `${common} ${sizeClass} ${modeClass}`;
   });
 
   /** @ignore */

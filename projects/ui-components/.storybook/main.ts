@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/angular-vite';
+import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   "stories": [
@@ -22,6 +23,11 @@ const config: StorybookConfig = {
         "projects/ui-components"
       ]
     }
+  },
+  async viteFinal(config) {
+    config.plugins = config.plugins || [];
+    config.plugins.push(tailwindcss());
+    return config;
   }
 };
 export default config;

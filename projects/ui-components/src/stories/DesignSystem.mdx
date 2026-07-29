@@ -1,0 +1,56 @@
+import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Design System/Design Tokens" />
+
+# nexusUI Design Tokens
+
+These are the global design tokens established at the organization level. They are configured via custom properties in the main `tailwind.css` theme configuration and are globally accessible as Tailwind CSS utility classes.
+
+## Color Palette
+
+Core colors defined for our brand identity:
+
+<ColorPalette>
+  <ColorItem 
+    title="Brand Primary" 
+    subtitle="Vibrant brand identifier (Ocean Blue)" 
+    colors={{ 
+      'brand-primary': '#00569d', 
+      'brand-primary-hover': '#004075',
+      'brand-primary-light': '#e6f0fa'
+    }} 
+  />
+  <ColorItem 
+    title="Brand Secondary" 
+    subtitle="Dark neutrals (Slate)" 
+    colors={{ 
+      'brand-secondary': '#0f172a', 
+      'brand-secondary-hover': '#1e293b',
+      'brand-secondary-muted': '#64748b',
+      'brand-secondary-border': '#e2e8f0'
+    }} 
+  />
+  <ColorItem 
+    title="Brand Accent" 
+    subtitle="Accent Highlights (Pink)" 
+    colors={{ 
+      'brand-accent': '#ff4785' 
+    }} 
+  />
+</ColorPalette>
+
+## Typography
+
+We use **Inter** for body text and interface elements, and **Outfit** for headings.
+
+### Font Families
+- **Sans (Body)**: `'Inter', sans-serif` (Default body text)
+- **Heading**: `'Outfit', sans-serif` (Section headers and emphasis)
+
+### Font Scale (Body - Inter)
+<Typeset
+  fontSizes={['12px', '14px', '16px', '20px', '24px', '32px', '40px', '48px']}
+  fontWeight={600}
+  sampleText="nexusUI - Empowering products with standard visual structures."
+  fontFamily="Inter, sans-serif"
+/>
