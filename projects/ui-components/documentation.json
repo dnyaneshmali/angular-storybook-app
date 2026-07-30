@@ -1,6 +1,87 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "ColorToken",
+            "id": "interface-ColorToken-7ffa44a7f73d5c182f63f3322eaf982333310712a167448a9822688d107f8d49644b8028820a9706032fd389cef99bbc5fc02059a78c6508feed5dfa9a5c3125",
+            "file": "projects/ui-components/src/stories/colors.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\ninterface ColorToken {\n  name: string;\n  variable: string;\n  class: string;\n  hex: string;\n  description: string;\n}\n\n@Component({\n  selector: 'storybook-colors',\n  standalone: true,\n  imports: [CommonModule],\n  template: `\n    <div class=\"p-6 font-sans\">\n      <div class=\"mb-8\">\n        <h1 class=\"text-3xl font-bold font-heading text-slate-900 dark:text-white mb-2\">Color Palette</h1>\n        <p class=\"text-slate-600 dark:text-slate-400\">Click on any card to copy its CSS Variable name or Hex code.</p>\n      </div>\n\n      <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3\">\n        @for (color of colors(); track color.variable) {\n          <div \n            class=\"bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow transition-all duration-200 cursor-pointer overflow-hidden group\"\n            (click)=\"copyToClipboard(color.variable, $event)\"\n          >\n            <!-- Color Block -->\n            <div \n              class=\"h-16 w-full transition-transform duration-200 group-hover:scale-[1.02]\"\n              [style.backgroundColor]=\"color.hex\"\n            ></div>\n\n            <!-- Details -->\n            <div class=\"p-2.5\">\n              <div class=\"mb-2\">\n                <h3 class=\"font-bold text-slate-800 dark:text-white text-xs truncate\" [title]=\"color.name\">{{ color.name }}</h3>\n              </div>\n              \n              <div class=\"space-y-1.5 text-[10px]\">\n                <div class=\"flex flex-col text-slate-500 dark:text-slate-400\">\n                  <span class=\"text-[9px] text-slate-400 uppercase tracking-wider mb-0.5\">Variable</span>\n                  <code class=\"font-mono text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900 px-1 py-0.5 rounded truncate\" [title]=\"color.variable\">{{ color.variable }}</code>\n                </div>\n                <div class=\"flex justify-between items-center text-slate-500 dark:text-slate-400\">\n                  <span class=\"text-[9px] text-slate-400 uppercase tracking-wider\">Hex</span>\n                  <button \n                    type=\"button\" \n                    class=\"font-mono text-brand-primary hover:underline font-semibold\"\n                    (click)=\"copyToClipboard(color.hex, $event)\"\n                  >\n                    {{ color.hex }}\n                  </button>\n                </div>\n              </div>\n            </div>\n          </div>\n        }\n      </div>\n\n      <!-- Toast Notification -->\n      @if (copiedText()) {\n        <div \n          class=\"fixed bottom-6 right-6 bg-slate-900 text-white text-sm font-semibold px-4.5 py-3 rounded-lg shadow-xl flex items-center gap-2 animate-bounce transition-all duration-300\"\n        >\n          <svg class=\"w-4.5 h-4.5 text-green-400\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" viewBox=\"0 0 24 24\">\n            <polyline points=\"20 6 9 17 4 12\"></polyline>\n          </svg>\n          <span>Copied: <code class=\"font-mono bg-slate-800 px-1 rounded\">{{ copiedText() }}</code></span>\n        </div>\n      }\n    </div>\n  `\n})\nexport class ColorsComponent {\n  colors = signal<ColorToken[]>([\n    {\n      name: 'Brand Primary',\n      variable: '--color-brand-primary',\n      class: 'bg-brand-primary',\n      hex: '#00569d',\n      description: 'Main corporate ocean blue.'\n    },\n    {\n      name: 'Brand Primary Hover',\n      variable: '--color-brand-primary-hover',\n      class: 'bg-brand-primary-hover',\n      hex: '#004075',\n      description: 'Used for hover state on primary brand components.'\n    },\n    {\n      name: 'Brand Primary Light',\n      variable: '--color-brand-primary-light',\n      class: 'bg-brand-primary-light',\n      hex: '#e6f0fa',\n      description: 'Soft tint light blue background.'\n    },\n    {\n      name: 'Brand Secondary',\n      variable: '--color-brand-secondary',\n      class: 'bg-brand-secondary',\n      hex: '#0f172a',\n      description: 'Slate dark layout color.'\n    },\n    {\n      name: 'Brand Secondary Hover',\n      variable: '--color-brand-secondary-hover',\n      class: 'bg-brand-secondary-hover',\n      hex: '#1e293b',\n      description: 'Secondary component hover color.'\n    },\n    {\n      name: 'Brand Secondary Muted',\n      variable: '--color-brand-secondary-muted',\n      class: 'bg-brand-secondary-muted',\n      hex: '#64748b',\n      description: 'Slate gray text and secondary elements.'\n    },\n    {\n      name: 'Brand Secondary Border',\n      variable: '--color-brand-secondary-border',\n      class: 'bg-brand-secondary-border',\n      hex: '#e2e8f0',\n      description: 'Slate light divider lines and borders.'\n    },\n    {\n      name: 'Brand Accent',\n      variable: '--color-brand-accent',\n      class: 'bg-brand-accent',\n      hex: '#ff4785',\n      description: 'Highlight hot pink accent.'\n    }\n  ]);\n\n  copiedText = signal<string | null>(null);\n\n  copyToClipboard(text: string, event: Event) {\n    event.stopPropagation();\n    navigator.clipboard.writeText(text).then(() => {\n      this.copiedText.set(text);\n      setTimeout(() => {\n        if (this.copiedText() === text) {\n          this.copiedText.set(null);\n        }\n      }, 2000);\n    });\n  }\n}\n",
+            "displayName": "ColorToken",
+            "properties": [
+                {
+                    "name": "class",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "description",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "hex",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "name",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "variable",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6,
+                    "rawdescription": "\n"
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": []
+            }
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -159,7 +240,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* Empty: Styled completely using TailwindCSS v4 utility classes */\n",
+                    "data": "/* Empty: Styled completely using TailwindCSS v4 utility classes */\r\n",
                     "styleUrl": "./button.css"
                 }
             ],
@@ -170,6 +251,140 @@
                 "outgoing": []
             },
             "templateData": "<button\n  type=\"button\"\n  [disabled]=\"disabled() || loading()\"\n  (click)=\"handleClick($event)\"\n  [class]=\"buttonClasses()\"\n  [style.background-color]=\"backgroundColor()\"\n>\n  @if (loading()) {\n    <span class=\"inline-block w-3.5 h-3.5 border-2 border-current border-t-transparent rounded-full animate-spin\"></span>\n  }\n  \n  @if (icon() && !loading()) {\n    <span class=\"inline-flex items-center justify-center w-4 h-4\" [innerHTML]=\"svgIcon()\"></span>\n  }\n  \n  <span>{{ label() }}</span>\n</button>\n"
+        },
+        {
+            "name": "ColorsComponent",
+            "id": "component-ColorsComponent-7ffa44a7f73d5c182f63f3322eaf982333310712a167448a9822688d107f8d49644b8028820a9706032fd389cef99bbc5fc02059a78c6508feed5dfa9a5c3125",
+            "file": "projects/ui-components/src/stories/colors.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-colors",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"p-6 font-sans\">\n  <div class=\"mb-8\">\n    <h1 class=\"text-3xl font-bold font-heading text-slate-900 dark:text-white mb-2\">Color Palette</h1>\n    <p class=\"text-slate-600 dark:text-slate-400\">Click on any card to copy its CSS Variable name or Hex code.</p>\n  </div>\n\n  <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3\">\n    @for (color of colors(); track color.variable) {\n      <div\n        class=\"bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow transition-all duration-200 cursor-pointer overflow-hidden group\"\n        (click)=\"copyToClipboard(color.variable, $event)\"\n      >\n        <!-- Color Block -->\n        <div\n          class=\"h-16 w-full transition-transform duration-200 group-hover:scale-[1.02]\"\n          [style.backgroundColor]=\"color.hex\"\n        ></div>\n\n        <!-- Details -->\n        <div class=\"p-2.5\">\n          <div class=\"mb-2\">\n            <h3 class=\"font-bold text-slate-800 dark:text-white text-xs truncate\" [title]=\"color.name\">{{ color.name }}</h3>\n          </div>\n\n          <div class=\"space-y-1.5 text-[10px]\">\n            <div class=\"flex flex-col text-slate-500 dark:text-slate-400\">\n              <span class=\"text-[9px] text-slate-400 uppercase tracking-wider mb-0.5\">Variable</span>\n              <code class=\"font-mono text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900 px-1 py-0.5 rounded truncate\" [title]=\"color.variable\">{{ color.variable }}</code>\n            </div>\n            <div class=\"flex justify-between items-center text-slate-500 dark:text-slate-400\">\n              <span class=\"text-[9px] text-slate-400 uppercase tracking-wider\">Hex</span>\n              <button\n                type=\"button\"\n                class=\"font-mono text-brand-primary hover:underline font-semibold\"\n                (click)=\"copyToClipboard(color.hex, $event)\"\n              >\n                {{ color.hex }}\n              </button>\n            </div>\n          </div>\n        </div>\n      </div>\n    }\n  </div>\n\n  <!-- Toast Notification -->\n  @if (copiedText()) {\n    <div\n      class=\"fixed bottom-6 right-6 bg-slate-900 text-white text-sm font-semibold px-4.5 py-3 rounded-lg shadow-xl flex items-center gap-2 animate-bounce transition-all duration-300\"\n    >\n      <svg class=\"w-4.5 h-4.5 text-green-400\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" viewBox=\"0 0 24 24\">\n        <polyline points=\"20 6 9 17 4 12\"></polyline>\n      </svg>\n      <span>Copied: <code class=\"font-mono bg-slate-800 px-1 rounded\">{{ copiedText() }}</code></span>\n    </div>\n  }\n</div>\n",
+            "templateUrl": [],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "colors",
+                    "coverageIgnore": false,
+                    "defaultValue": "signal<ColorToken[]>([\n    {\n      name: 'Brand Primary',\n      variable: '--color-brand-primary',\n      class: 'bg-brand-primary',\n      hex: '#00569d',\n      description: 'Main corporate ocean blue.'\n    },\n    {\n      name: 'Brand Primary Hover',\n      variable: '--color-brand-primary-hover',\n      class: 'bg-brand-primary-hover',\n      hex: '#004075',\n      description: 'Used for hover state on primary brand components.'\n    },\n    {\n      name: 'Brand Primary Light',\n      variable: '--color-brand-primary-light',\n      class: 'bg-brand-primary-light',\n      hex: '#e6f0fa',\n      description: 'Soft tint light blue background.'\n    },\n    {\n      name: 'Brand Secondary',\n      variable: '--color-brand-secondary',\n      class: 'bg-brand-secondary',\n      hex: '#0f172a',\n      description: 'Slate dark layout color.'\n    },\n    {\n      name: 'Brand Secondary Hover',\n      variable: '--color-brand-secondary-hover',\n      class: 'bg-brand-secondary-hover',\n      hex: '#1e293b',\n      description: 'Secondary component hover color.'\n    },\n    {\n      name: 'Brand Secondary Muted',\n      variable: '--color-brand-secondary-muted',\n      class: 'bg-brand-secondary-muted',\n      hex: '#64748b',\n      description: 'Slate gray text and secondary elements.'\n    },\n    {\n      name: 'Brand Secondary Border',\n      variable: '--color-brand-secondary-border',\n      class: 'bg-brand-secondary-border',\n      hex: '#e2e8f0',\n      description: 'Slate light divider lines and borders.'\n    },\n    {\n      name: 'Brand Accent',\n      variable: '--color-brand-accent',\n      class: 'bg-brand-accent',\n      hex: '#ff4785',\n      description: 'Highlight hot pink accent.'\n    }\n  ])",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 77,
+                    "rawdescription": "\n"
+                },
+                {
+                    "name": "copiedText",
+                    "coverageIgnore": false,
+                    "defaultValue": "signal<string | null>(null)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 136,
+                    "rawdescription": "\n"
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "copyToClipboard",
+                    "coverageIgnore": false,
+                    "args": [
+                        {
+                            "name": "text",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 138,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n",
+                    "description": "",
+                    "jsdoctags": [
+                        {
+                            "name": "text",
+                            "type": "string",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, signal } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\ninterface ColorToken {\n  name: string;\n  variable: string;\n  class: string;\n  hex: string;\n  description: string;\n}\n\n@Component({\n  selector: 'storybook-colors',\n  standalone: true,\n  imports: [CommonModule],\n  template: `\n    <div class=\"p-6 font-sans\">\n      <div class=\"mb-8\">\n        <h1 class=\"text-3xl font-bold font-heading text-slate-900 dark:text-white mb-2\">Color Palette</h1>\n        <p class=\"text-slate-600 dark:text-slate-400\">Click on any card to copy its CSS Variable name or Hex code.</p>\n      </div>\n\n      <div class=\"grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3\">\n        @for (color of colors(); track color.variable) {\n          <div \n            class=\"bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow transition-all duration-200 cursor-pointer overflow-hidden group\"\n            (click)=\"copyToClipboard(color.variable, $event)\"\n          >\n            <!-- Color Block -->\n            <div \n              class=\"h-16 w-full transition-transform duration-200 group-hover:scale-[1.02]\"\n              [style.backgroundColor]=\"color.hex\"\n            ></div>\n\n            <!-- Details -->\n            <div class=\"p-2.5\">\n              <div class=\"mb-2\">\n                <h3 class=\"font-bold text-slate-800 dark:text-white text-xs truncate\" [title]=\"color.name\">{{ color.name }}</h3>\n              </div>\n              \n              <div class=\"space-y-1.5 text-[10px]\">\n                <div class=\"flex flex-col text-slate-500 dark:text-slate-400\">\n                  <span class=\"text-[9px] text-slate-400 uppercase tracking-wider mb-0.5\">Variable</span>\n                  <code class=\"font-mono text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900 px-1 py-0.5 rounded truncate\" [title]=\"color.variable\">{{ color.variable }}</code>\n                </div>\n                <div class=\"flex justify-between items-center text-slate-500 dark:text-slate-400\">\n                  <span class=\"text-[9px] text-slate-400 uppercase tracking-wider\">Hex</span>\n                  <button \n                    type=\"button\" \n                    class=\"font-mono text-brand-primary hover:underline font-semibold\"\n                    (click)=\"copyToClipboard(color.hex, $event)\"\n                  >\n                    {{ color.hex }}\n                  </button>\n                </div>\n              </div>\n            </div>\n          </div>\n        }\n      </div>\n\n      <!-- Toast Notification -->\n      @if (copiedText()) {\n        <div \n          class=\"fixed bottom-6 right-6 bg-slate-900 text-white text-sm font-semibold px-4.5 py-3 rounded-lg shadow-xl flex items-center gap-2 animate-bounce transition-all duration-300\"\n        >\n          <svg class=\"w-4.5 h-4.5 text-green-400\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" viewBox=\"0 0 24 24\">\n            <polyline points=\"20 6 9 17 4 12\"></polyline>\n          </svg>\n          <span>Copied: <code class=\"font-mono bg-slate-800 px-1 rounded\">{{ copiedText() }}</code></span>\n        </div>\n      }\n    </div>\n  `\n})\nexport class ColorsComponent {\n  colors = signal<ColorToken[]>([\n    {\n      name: 'Brand Primary',\n      variable: '--color-brand-primary',\n      class: 'bg-brand-primary',\n      hex: '#00569d',\n      description: 'Main corporate ocean blue.'\n    },\n    {\n      name: 'Brand Primary Hover',\n      variable: '--color-brand-primary-hover',\n      class: 'bg-brand-primary-hover',\n      hex: '#004075',\n      description: 'Used for hover state on primary brand components.'\n    },\n    {\n      name: 'Brand Primary Light',\n      variable: '--color-brand-primary-light',\n      class: 'bg-brand-primary-light',\n      hex: '#e6f0fa',\n      description: 'Soft tint light blue background.'\n    },\n    {\n      name: 'Brand Secondary',\n      variable: '--color-brand-secondary',\n      class: 'bg-brand-secondary',\n      hex: '#0f172a',\n      description: 'Slate dark layout color.'\n    },\n    {\n      name: 'Brand Secondary Hover',\n      variable: '--color-brand-secondary-hover',\n      class: 'bg-brand-secondary-hover',\n      hex: '#1e293b',\n      description: 'Secondary component hover color.'\n    },\n    {\n      name: 'Brand Secondary Muted',\n      variable: '--color-brand-secondary-muted',\n      class: 'bg-brand-secondary-muted',\n      hex: '#64748b',\n      description: 'Slate gray text and secondary elements.'\n    },\n    {\n      name: 'Brand Secondary Border',\n      variable: '--color-brand-secondary-border',\n      class: 'bg-brand-secondary-border',\n      hex: '#e2e8f0',\n      description: 'Slate light divider lines and borders.'\n    },\n    {\n      name: 'Brand Accent',\n      variable: '--color-brand-accent',\n      class: 'bg-brand-accent',\n      hex: '#ff4785',\n      description: 'Highlight hot pink accent.'\n    }\n  ]);\n\n  copiedText = signal<string | null>(null);\n\n  copyToClipboard(text: string, event: Event) {\n    event.stopPropagation();\n    navigator.clipboard.writeText(text).then(() => {\n      this.copiedText.set(text);\n      setTimeout(() => {\n        if (this.copiedText() === text) {\n          this.copiedText.set(null);\n        }\n      }, 2000);\n    });\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "CommonModule",
+                        "type": "module"
+                    }
+                ]
+            }
         },
         {
             "name": "UiComponents",
@@ -219,6 +434,17 @@
     "modules": [],
     "miscellaneous": {
         "variables": [
+            {
+                "name": "ColorPalette",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/colors.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{}"
+            },
             {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
@@ -286,6 +512,17 @@
                 "defaultValue": "{\n  title: 'Example/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    backgroundColor: {\n      control: 'color',\n    },\n    icon: {\n      control: 'select',\n      options: ['search', 'check', 'arrow-right', 'download', 'plus', ''],\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large'],\n    },\n  },\n  args: { onClick: fn() },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/colors.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<ColorsComponent>",
+                "defaultValue": "{\n  title: 'Design System/Colors',\n  component: ColorsComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Interactive reference grid for all corporate design token colors. Click on variable name or hex value to copy to clipboard.',\n      },\n    },\n  },\n}"
+            },
+            {
                 "name": "preview",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -294,7 +531,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Preview",
-                "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n\n    a11y: {\n      // 'todo' - show a11y violations in the test UI only\n      // 'error' - fail CI on a11y violations\n      // 'off' - skip a11y checks entirely\n      test: 'todo',\n    },\n  },\n}"
+                "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n\r\n    a11y: {\r\n      // 'todo' - show a11y violations in the test UI only\r\n      // 'error' - fail CI on a11y violations\r\n      // 'off' - skip a11y checks entirely\r\n      test: 'todo',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Primary",
@@ -366,10 +603,47 @@
                 "rawdescription": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<ColorsComponent>",
+                "file": "projects/ui-components/src/stories/colors.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ui-components/src/stories/colors.stories.ts": [
+                {
+                    "name": "ColorPalette",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/colors.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/colors.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<ColorsComponent>",
+                    "defaultValue": "{\n  title: 'Design System/Colors',\n  component: ColorsComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Interactive reference grid for all corporate design token colors. Click on variable name or hex value to copy to clipboard.',\n      },\n    },\n  },\n}"
+                }
+            ],
             "projects/ui-components/src/stories/button.stories.ts": [
                 {
                     "name": "Disabled",
@@ -503,7 +777,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Preview",
-                    "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n\n    a11y: {\n      // 'todo' - show a11y violations in the test UI only\n      // 'error' - fail CI on a11y violations\n      // 'off' - skip a11y checks entirely\n      test: 'todo',\n    },\n  },\n}"
+                    "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n\r\n    a11y: {\r\n      // 'todo' - show a11y violations in the test UI only\r\n      // 'error' - fail CI on a11y violations\r\n      // 'off' - skip a11y checks entirely\r\n      test: 'todo',\r\n    },\r\n  },\r\n}"
                 }
             ]
         },
@@ -518,6 +792,21 @@
                     "coverageIgnore": false,
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-components/src/stories/colors.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<ColorsComponent>",
+                    "file": "projects/ui-components/src/stories/colors.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "",
@@ -676,6 +965,54 @@
             },
             {
                 "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/colors.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ColorsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/colors.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "ColorToken",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/colors.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ColorPalette",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/colors.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/colors.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
