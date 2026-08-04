@@ -269,6 +269,10 @@
                     {
                         "name": "CardComponent",
                         "type": "component"
+                    },
+                    {
+                        "name": "LoaderComponent",
+                        "type": "component"
                     }
                 ],
                 "outgoing": []
@@ -688,6 +692,358 @@
             }
         },
         {
+            "name": "LoaderComponent",
+            "id": "component-LoaderComponent-d915d31679dc0f8b80af199aa592f2de589cebcb14a9214d50b4892ec75bed57072c112a43e8b1a1acc6a6818190d179d202a9dca278b2e27ccc0762e5867c4f",
+            "file": "projects/ui-components/src/stories/loader.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-loader",
+            "styleUrls": [
+                "./loader.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./loader.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "active",
+                    "coverageIgnore": false,
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "cancelable",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "cancelButtonLabel",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Cancel Request'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "mode",
+                    "coverageIgnore": false,
+                    "defaultValue": "'fullscreen'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"fullscreen\" | \"overlay\" | \"inline\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "progress",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "spinnerColor",
+                    "coverageIgnore": false,
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"primary\" | \"secondary\" | \"white\" | \"accent\" | \"success\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 19,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "spinnerType",
+                    "coverageIgnore": false,
+                    "defaultValue": "'ring'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"spinner\" | \"dots\" | \"bars\" | \"ring\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "subtitle",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Please wait while we process your request. Do not refresh this page.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "theme",
+                    "coverageIgnore": false,
+                    "defaultValue": "'glass'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"glass\" | \"light\" | \"dark\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "title",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Processing API Request'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "cancelled",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Event",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "SpinnerComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input, output, computed, ViewEncapsulation } from '@angular/core';\nimport { SpinnerComponent } from './spinner.component';\nimport { ButtonComponent } from './button.component';\n\n@Component({\n  selector: 'storybook-loader',\n  standalone: true,\n  imports: [SpinnerComponent, ButtonComponent],\n  templateUrl: './loader.component.html',\n  styleUrls: ['./loader.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class LoaderComponent {\n  active = input<boolean>(true);\n  mode = input<'fullscreen' | 'overlay' | 'inline'>('fullscreen');\n  title = input<string>('Processing API Request');\n  subtitle = input<string>('Please wait while we process your request. Do not refresh this page.');\n  spinnerType = input<'spinner' | 'dots' | 'bars' | 'ring'>('ring');\n  spinnerColor = input<'primary' | 'secondary' | 'white' | 'accent' | 'success'>('primary');\n  theme = input<'glass' | 'light' | 'dark'>('glass');\n  cancelable = input<boolean>(false);\n  cancelButtonLabel = input<string>('Cancel Request');\n  progress = input<number>(); // 0 to 100 percentage\n\n  cancelled = output<Event>();\n\n  /** @ignore */\n  protected readonly backdropClass = computed(() => {\n    const isFullscreen = this.mode() === 'fullscreen';\n    const isOverlay = this.mode() === 'overlay';\n\n    const layoutClass = isFullscreen\n      ? 'fixed inset-0 z-[9999] flex flex-col items-center justify-center p-6 transition-all duration-300 pointer-events-auto select-none'\n      : isOverlay\n      ? 'absolute inset-0 z-40 flex flex-col items-center justify-center p-6 transition-all duration-300 pointer-events-auto select-none rounded-2xl'\n      : 'flex flex-col items-center justify-center p-6 select-none';\n\n    const themeMap = {\n      glass: isInline(this.mode()) ? 'text-slate-800' : 'bg-slate-900/80 backdrop-blur-md text-white',\n      light: isInline(this.mode()) ? 'text-slate-800' : 'bg-white/95 text-slate-800',\n      dark: isInline(this.mode()) ? 'text-white' : 'bg-slate-950/95 text-white',\n    };\n\n    return `${layoutClass} ${themeMap[this.theme()] || themeMap.glass}`;\n  });\n\n  /** @ignore */\n  protected readonly boundedProgress = computed(() => {\n    const value = this.progress();\n    if (value === undefined || value === null) return null;\n    return Math.min(100, Math.max(0, value));\n  });\n\n  /** @ignore */\n  protected handleCancel(event: Event) {\n    this.cancelled.emit(event);\n  }\n}\n\nfunction isInline(mode: string): boolean {\n  return mode === 'inline';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "/* Custom Animations for LoaderComponent */\n@keyframes loader-fade-in {\n  from {\n    opacity: 0;\n    transform: scale(0.97);\n  }\n  to {\n    opacity: 1;\n    transform: scale(1);\n  }\n}\n\n.loader-content {\n  animation: loader-fade-in 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;\n}\n",
+                    "styleUrl": "./loader.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [],
+                "outgoing": [
+                    {
+                        "name": "SpinnerComponent",
+                        "type": "component"
+                    },
+                    {
+                        "name": "ButtonComponent",
+                        "type": "component"
+                    }
+                ]
+            },
+            "templateData": "@if (active()) {\n  <div\n    [class]=\"backdropClass()\"\n    role=\"dialog\"\n    aria-modal=\"true\"\n    aria-label=\"Loading indicator\"\n  >\n    <!-- Centered Clean Loader Layout (No Card Container Box) -->\n    <div class=\"loader-content max-w-sm w-full flex flex-col items-center text-center space-y-6\">\n      <!-- Spinner Visual -->\n      <div class=\"flex items-center justify-center\">\n        <storybook-spinner\n          [type]=\"spinnerType()\"\n          [color]=\"spinnerColor()\"\n          size=\"xlarge\"\n        ></storybook-spinner>\n      </div>\n\n      <!-- Title & Subtitle -->\n      <div class=\"space-y-2 max-w-xs\">\n        <h3 class=\"text-xl font-extrabold tracking-tight\">\n          {{ title() }}\n        </h3>\n        @if (subtitle()) {\n          <p [class]=\"'text-xs leading-relaxed ' + (theme() === 'light' ? 'text-slate-500' : 'text-slate-300')\">\n            {{ subtitle() }}\n          </p>\n        }\n      </div>\n\n      <!-- Optional Progress Bar -->\n      @if (boundedProgress() !== null) {\n        <div class=\"w-full max-w-xs space-y-2 pt-2\">\n          <div class=\"flex justify-between items-center text-xs font-semibold\">\n            <span [class]=\"theme() === 'light' ? 'text-slate-500' : 'text-slate-400'\">Progress</span>\n            <span class=\"font-mono text-brand-primary\">{{ boundedProgress() }}%</span>\n          </div>\n          <div [class]=\"'w-full rounded-full h-2 overflow-hidden border ' + (theme() === 'light' ? 'bg-slate-100 border-slate-200' : 'bg-slate-800 border-slate-700')\">\n            <div\n              class=\"bg-brand-primary h-full rounded-full transition-all duration-300 ease-out\"\n              [style.width.%]=\"boundedProgress()\"\n            ></div>\n          </div>\n        </div>\n      }\n\n      <!-- Optional Cancel Button -->\n      @if (cancelable()) {\n        <div class=\"pt-2\">\n          <storybook-button\n            [primary]=\"false\"\n            [label]=\"cancelButtonLabel()\"\n            size=\"small\"\n            (onClick)=\"handleCancel($event)\"\n          ></storybook-button>\n        </div>\n      }\n    </div>\n  </div>\n}\n"
+        },
+        {
+            "name": "SpinnerComponent",
+            "id": "component-SpinnerComponent-0a6896ac98eb4bc091786cc422fe884eaa760d5fdf77e33e58d60719a43cc589be34d2f04d5861ddf3431122036ffd755091953eefd014e05eccd6649d78db5b",
+            "file": "projects/ui-components/src/stories/spinner.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-spinner",
+            "styleUrls": [
+                "./spinner.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./spinner.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "coverageIgnore": false,
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"primary\" | \"secondary\" | \"white\" | \"accent\" | \"success\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "label",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "size",
+                    "coverageIgnore": false,
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "subtext",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "type",
+                    "coverageIgnore": false,
+                    "defaultValue": "'spinner'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"spinner\" | \"dots\" | \"bars\" | \"ring\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input, computed, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'storybook-spinner',\n  standalone: true,\n  templateUrl: './spinner.component.html',\n  styleUrls: ['./spinner.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class SpinnerComponent {\n  type = input<'spinner' | 'dots' | 'bars' | 'ring'>('spinner');\n  size = input<'small' | 'medium' | 'large' | 'xlarge'>('medium');\n  color = input<'primary' | 'secondary' | 'white' | 'accent' | 'success'>('primary');\n  label = input<string>();\n  subtext = input<string>();\n\n  /** @ignore */\n  protected readonly colorClass = computed(() => {\n    const colorMap = {\n      primary: 'text-brand-primary',\n      secondary: 'text-brand-secondary',\n      white: 'text-white',\n      accent: 'text-brand-accent',\n      success: 'text-emerald-500',\n    };\n    return colorMap[this.color()] || colorMap.primary;\n  });\n\n  /** @ignore */\n  protected readonly sizeClass = computed(() => {\n    const sizeMap = {\n      small: 'w-4 h-4 text-xs',\n      medium: 'w-6 h-6 text-sm',\n      large: 'w-10 h-10 text-base',\n      xlarge: 'w-16 h-16 text-lg',\n    };\n    return sizeMap[this.size()] || sizeMap.medium;\n  });\n\n  /** @ignore */\n  protected readonly dotSizeClass = computed(() => {\n    const dotMap = {\n      small: 'w-1.5 h-1.5',\n      medium: 'w-2.5 h-2.5',\n      large: 'w-3.5 h-3.5',\n      xlarge: 'w-5 h-5',\n    };\n    return dotMap[this.size()] || dotMap.medium;\n  });\n\n  /** @ignore */\n  protected readonly barSizeClass = computed(() => {\n    const barMap = {\n      small: 'h-4 w-1',\n      medium: 'h-6 w-1.5',\n      large: 'h-10 w-2',\n      xlarge: 'h-14 w-2.5',\n    };\n    return barMap[this.size()] || barMap.medium;\n  });\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "/* Custom Animations for SpinnerComponent */\n\n/* Bouncing Dots Animation */\n@keyframes spinner-bounce {\n  0%, 80%, 100% {\n    transform: scale(0);\n    opacity: 0.3;\n  }\n  40% {\n    transform: scale(1);\n    opacity: 1;\n  }\n}\n\n.spinner-dot-1 {\n  animation: spinner-bounce 1.4s infinite ease-in-out 0s;\n}\n\n.spinner-dot-2 {\n  animation: spinner-bounce 1.4s infinite ease-in-out 0.2s;\n}\n\n.spinner-dot-3 {\n  animation: spinner-bounce 1.4s infinite ease-in-out 0.4s;\n}\n\n/* Equalizer Wave Bars Animation */\n@keyframes spinner-wave {\n  0%, 40%, 100% {\n    transform: scaleY(0.4);\n  }\n  20% {\n    transform: scaleY(1);\n  }\n}\n\n.spinner-bar-1 {\n  animation: spinner-wave 1.2s infinite ease-in-out 0s;\n}\n\n.spinner-bar-2 {\n  animation: spinner-wave 1.2s infinite ease-in-out 0.15s;\n}\n\n.spinner-bar-3 {\n  animation: spinner-wave 1.2s infinite ease-in-out 0.3s;\n}\n\n.spinner-bar-4 {\n  animation: spinner-wave 1.2s infinite ease-in-out 0.45s;\n}\n",
+                    "styleUrl": "./spinner.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "LoaderComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": []
+            },
+            "templateData": "<div class=\"inline-flex items-center gap-3 text-slate-800\" role=\"status\" aria-live=\"polite\">\n  <!-- Visual Indicator Container -->\n  <div class=\"flex items-center justify-center\">\n    @switch (type()) {\n      @case ('dots') {\n        <!-- Bouncing Dots -->\n        <div class=\"flex items-center gap-1.5\">\n          <span [class]=\"'rounded-full bg-current spinner-dot-1 ' + dotSizeClass() + ' ' + colorClass()\"></span>\n          <span [class]=\"'rounded-full bg-current spinner-dot-2 ' + dotSizeClass() + ' ' + colorClass()\"></span>\n          <span [class]=\"'rounded-full bg-current spinner-dot-3 ' + dotSizeClass() + ' ' + colorClass()\"></span>\n        </div>\n      }\n\n      @case ('bars') {\n        <!-- Equalizer Wave Bars -->\n        <div class=\"flex items-center gap-1\">\n          <span [class]=\"'rounded-full bg-current spinner-bar-1 ' + barSizeClass() + ' ' + colorClass()\"></span>\n          <span [class]=\"'rounded-full bg-current spinner-bar-2 ' + barSizeClass() + ' ' + colorClass()\"></span>\n          <span [class]=\"'rounded-full bg-current spinner-bar-3 ' + barSizeClass() + ' ' + colorClass()\"></span>\n          <span [class]=\"'rounded-full bg-current spinner-bar-4 ' + barSizeClass() + ' ' + colorClass()\"></span>\n        </div>\n      }\n\n      @case ('ring') {\n        <!-- Dual Ring Glow Spinner -->\n        <div [class]=\"'relative animate-spin ' + sizeClass() + ' ' + colorClass()\">\n          <svg viewBox=\"0 0 50 50\" class=\"w-full h-full\">\n            <circle\n              cx=\"25\"\n              cy=\"25\"\n              r=\"20\"\n              fill=\"none\"\n              stroke=\"currentColor\"\n              stroke-width=\"4\"\n              class=\"opacity-20\"\n            ></circle>\n            <circle\n              cx=\"25\"\n              cy=\"25\"\n              r=\"20\"\n              fill=\"none\"\n              stroke=\"currentColor\"\n              stroke-width=\"4\"\n              stroke-dasharray=\"80\"\n              stroke-dashoffset=\"60\"\n              stroke-linecap=\"round\"\n            ></circle>\n          </svg>\n        </div>\n      }\n\n      @default {\n        <!-- Classic Rotating Spinner -->\n        <span\n          [class]=\"'inline-block border-2 border-current border-t-transparent rounded-full animate-spin ' + sizeClass() + ' ' + colorClass()\"\n        ></span>\n      }\n    }\n  </div>\n\n  <!-- Text Label & Subtext -->\n  @if (label() || subtext()) {\n    <div class=\"flex flex-col\">\n      @if (label()) {\n        <p class=\"font-semibold tracking-tight text-current\">\n          {{ label() }}\n        </p>\n      }\n\n      @if (subtext()) {\n        <p class=\"text-xs text-slate-500\">\n          {{ subtext() }}\n        </p>\n      }\n    </div>\n  }\n</div>\n"
+        },
+        {
             "name": "UiComponents",
             "id": "component-UiComponents-161e5a0a81b71d608c8d594c611752c06a885d6ab47005dbeef96f762dcff9fd4f12b5e8c7bd98225afe70f234725825bb974debef95d6d3ceb59eb9ee6c2362",
             "file": "projects/ui-components/src/lib/ui-components.ts",
@@ -736,6 +1092,28 @@
     "miscellaneous": {
         "variables": [
             {
+                "name": "BarsVariant",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'bars',\n    size: 'large',\n    color: 'accent',\n    label: 'Uploading attachment...',\n    subtext: '75% completed',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Uploading attachment...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "Cancelable",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    cancelable: true,\n    cancelButtonLabel: 'Abort Request',\n    title: 'Long-running Export Task',\n    subtitle: 'Generating PDF report with analytics charts...',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[350px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [cancelable]=\"cancelable\"\n          [cancelButtonLabel]=\"cancelButtonLabel\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          (cancelled)=\"cancelled($event)\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const cancelBtn = canvas.getByRole('button', { name: /Abort Request/i });\n    await expect(cancelBtn).toBeInTheDocument();\n\n    await userEvent.click(cancelBtn);\n    await expect(args.cancelled).toHaveBeenCalled();\n  },\n}"
+            },
+            {
                 "name": "ColorPalette",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -745,6 +1123,17 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{}"
+            },
+            {
+                "name": "ColorsShowcase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'dots',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"flex items-center gap-8 p-6 bg-slate-900 rounded-2xl\">\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"primary\" label=\"Primary\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"white\" label=\"White\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"accent\" label=\"Accent\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"success\" label=\"Success\"></storybook-spinner>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "CustomWidthHeight",
@@ -758,6 +1147,17 @@
                 "defaultValue": "{\n  args: {\n    title: 'Custom Dimension Card',\n    subtitle: 'Fixed Size',\n    description: 'Configured with an explicit width of 420px and height of 350px.',\n    width: '420px',\n    height: '350px',\n    primaryButtonLabel: 'Confirm',\n    secondaryButtonLabel: 'Cancel',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Custom Dimension Card');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
             },
             {
+                "name": "DarkTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'dark',\n    title: 'Executing Migration Script',\n    subtitle: 'Updating database schemas and indexing records...',\n    spinnerType: 'dots',\n    spinnerColor: 'accent',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-950 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n          [spinnerColor]=\"spinnerColor\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Executing Migration Script');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+            },
+            {
                 "name": "Default",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -767,6 +1167,28 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    title: 'Standard Card Title',\n    subtitle: 'Overview',\n    description: 'This is a standard card component designed with Tailwind CSS, supporting clean typography and flexible layouts.',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Standard Card Title');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'Processing API Request',\n    subtitle: 'Please wait while we sync your dataset with the cloud server.',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Processing API Request');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    label: 'Loading...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Loading...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "Disabled",
@@ -780,6 +1202,28 @@
                 "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Disabled Button/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
             },
             {
+                "name": "DotsSpinner",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    spinnerType: 'dots',\n    title: 'Saving Changes',\n    subtitle: 'Synchronizing user profile details...',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [spinnerType]=\"spinnerType\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Saving Changes');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "DotsVariant",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'dots',\n    size: 'medium',\n    color: 'primary',\n    label: 'Saving changes...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const status = canvas.getByRole('status');\n    await expect(status).toBeInTheDocument();\n  },\n}"
+            },
+            {
                 "name": "Flat",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -789,6 +1233,17 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'flat',\n    title: 'Flat Card Style',\n    subtitle: 'Minimal',\n    description: 'Subtle background container with zero drop shadow for minimalist interfaces.',\n    primaryButtonLabel: 'Action',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Flat Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "GlassTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'glass',\n    title: 'Connecting to Payment Gateway',\n    subtitle: 'Securing transaction payload...',\n    spinnerType: 'ring',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-gradient-to-r from-blue-600 to-indigo-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Connecting to Payment Gateway');\n    await expect(title).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "IconAndLoading",
@@ -802,6 +1257,17 @@
                 "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Submitting/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
             },
             {
+                "name": "InteractionBlocked",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'API Request in Progress',\n    subtitle: 'Notice how background elements are blocked while active.',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative p-8 bg-slate-100 rounded-3xl min-h-[350px] space-y-4 overflow-hidden\">\n        <h3 class=\"text-xl font-bold text-slate-800\">Background Form Page</h3>\n        <p class=\"text-sm text-slate-600\">Simulated page behind the loader backdrop.</p>\n        <div class=\"flex gap-3\">\n          <button id=\"bg-btn-1\" class=\"px-4 py-2 bg-brand-primary text-white rounded-lg\">Background Action</button>\n          <input type=\"text\" placeholder=\"Form input...\" class=\"p-2 border rounded-lg bg-white\" />\n        </div>\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('API Request in Progress');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+            },
+            {
                 "name": "Large",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -811,6 +1277,17 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Large Button/i });\n    await expect(button).toHaveClass('px-6');\n  },\n}"
+            },
+            {
+                "name": "LightTheme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'light',\n    title: 'Synchronizing Database',\n    subtitle: 'Refreshing local cache data...',\n    spinnerType: 'spinner',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Synchronizing Database');\n    await expect(title).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "Loading",
@@ -879,6 +1356,28 @@
                 "defaultValue": "{\n  title: 'Design System/Colors',\n  component: ColorsComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Interactive reference grid for all corporate design token colors. Click on variable name or hex value to copy to clipboard.',\n      },\n    },\n  },\n}"
             },
             {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<LoaderComponent>",
+                "defaultValue": "{\n  title: 'Example/Loader',\n  component: LoaderComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    mode: {\n      control: 'select',\n      options: ['fullscreen', 'overlay', 'inline'],\n    },\n    theme: {\n      control: 'select',\n      options: ['glass', 'light', 'dark'],\n    },\n    spinnerType: {\n      control: 'select',\n      options: ['ring', 'spinner', 'dots', 'bars'],\n    },\n    spinnerColor: {\n      control: 'select',\n      options: ['primary', 'secondary', 'white', 'accent', 'success'],\n    },\n    progress: {\n      control: { type: 'range', min: 0, max: 100, step: 1 },\n    },\n  },\n  args: {\n    cancelled: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<SpinnerComponent>",
+                "defaultValue": "{\n  title: 'Example/Spinner',\n  component: SpinnerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['spinner', 'dots', 'bars', 'ring'],\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'xlarge'],\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'secondary', 'white', 'accent', 'success'],\n    },\n  },\n}"
+            },
+            {
                 "name": "Outlined",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -888,17 +1387,6 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    variant: 'outlined',\n    title: 'Outlined Card Style',\n    subtitle: 'Bordered',\n    description: 'Features a distinct border style with clean background integration.',\n    primaryButtonLabel: 'Select Plan',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Outlined Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
-            },
-            {
-                "name": "preview",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "projects/ui-components/.storybook/preview.ts",
-                "coverageIgnore": false,
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Preview",
-                "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n\r\n    a11y: {\r\n      // 'todo' - show a11y violations in the test UI only\r\n      // 'error' - fail CI on a11y violations\r\n      // 'off' - skip a11y checks entirely\r\n      test: 'todo',\r\n    },\r\n  },\r\n}"
             },
             {
                 "name": "Primary",
@@ -912,6 +1400,17 @@
                 "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Primary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('bg-brand-primary');\n  },\n}"
             },
             {
+                "name": "RingGlowVariant",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'ring',\n    size: 'large',\n    color: 'primary',\n    label: 'Authenticating...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Authenticating...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
+            },
+            {
                 "name": "Secondary",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -921,6 +1420,17 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Secondary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('border');\n  },\n}"
+            },
+            {
+                "name": "SizesShowcase",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    type: 'spinner',\n    label: 'Processing API request',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"flex flex-col gap-6 p-4\">\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">small</span>\n          <storybook-spinner size=\"small\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">medium</span>\n          <storybook-spinner size=\"medium\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">large</span>\n          <storybook-spinner size=\"large\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">xlarge</span>\n          <storybook-spinner size=\"xlarge\" [label]=\"label\"></storybook-spinner>\n        </div>\n      </div>\n    `,\n  }),\n}"
             },
             {
                 "name": "Small",
@@ -998,9 +1508,53 @@
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "{\n  args: {\n    title: 'Information Card',\n    subtitle: 'Read Only',\n    description: 'This card contains purely informational content without any action buttons.',\n    width: '350px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const buttons = canvas.queryAllByRole('button');\n    await expect(buttons.length).toBe(0);\n  },\n}"
+            },
+            {
+                "name": "WithProgress",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'Uploading Media Files',\n    subtitle: 'Transferring assets to storage bucket. Do not close this browser tab.',\n    progress: 72,\n    spinnerType: 'ring',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[350px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [progress]=\"progress\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const progressText = canvas.getByText('72%');\n    await expect(progressText).toBeInTheDocument();\n  },\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "isInline",
+                "file": "projects/ui-components/src/stories/loader.component.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "displayName": "isInline",
+                "args": [
+                    {
+                        "name": "mode",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "returnType": "boolean",
+                "jsdoctags": [
+                    {
+                        "name": "mode",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [
             {
                 "name": "Story",
@@ -1040,10 +1594,216 @@
                 "rawdescription": "",
                 "description": "",
                 "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<LoaderComponent>",
+                "file": "projects/ui-components/src/stories/loader.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<SpinnerComponent>",
+                "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
             }
         ],
         "enumerations": [],
         "groupedVariables": {
+            "projects/ui-components/src/stories/spinner.stories.ts": [
+                {
+                    "name": "BarsVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'bars',\n    size: 'large',\n    color: 'accent',\n    label: 'Uploading attachment...',\n    subtext: '75% completed',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Uploading attachment...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "ColorsShowcase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'dots',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"flex items-center gap-8 p-6 bg-slate-900 rounded-2xl\">\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"primary\" label=\"Primary\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"white\" label=\"White\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"accent\" label=\"Accent\"></storybook-spinner>\n        </div>\n        <div class=\"text-center space-y-2\">\n          <storybook-spinner type=\"dots\" color=\"success\" label=\"Success\"></storybook-spinner>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    label: 'Loading...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Loading...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "DotsVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'dots',\n    size: 'medium',\n    color: 'primary',\n    label: 'Saving changes...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const status = canvas.getByRole('status');\n    await expect(status).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<SpinnerComponent>",
+                    "defaultValue": "{\n  title: 'Example/Spinner',\n  component: SpinnerComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['spinner', 'dots', 'bars', 'ring'],\n    },\n    size: {\n      control: 'select',\n      options: ['small', 'medium', 'large', 'xlarge'],\n    },\n    color: {\n      control: 'select',\n      options: ['primary', 'secondary', 'white', 'accent', 'success'],\n    },\n  },\n}"
+                },
+                {
+                    "name": "RingGlowVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'ring',\n    size: 'large',\n    color: 'primary',\n    label: 'Authenticating...',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const label = canvas.getByText('Authenticating...');\n    await expect(label).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "SizesShowcase",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    type: 'spinner',\n    label: 'Processing API request',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"flex flex-col gap-6 p-4\">\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">small</span>\n          <storybook-spinner size=\"small\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">medium</span>\n          <storybook-spinner size=\"medium\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">large</span>\n          <storybook-spinner size=\"large\" [label]=\"label\"></storybook-spinner>\n        </div>\n        <div class=\"flex items-center gap-4\">\n          <span class=\"text-xs font-mono w-16 text-slate-400\">xlarge</span>\n          <storybook-spinner size=\"xlarge\" [label]=\"label\"></storybook-spinner>\n        </div>\n      </div>\n    `,\n  }),\n}"
+                }
+            ],
+            "projects/ui-components/src/stories/loader.stories.ts": [
+                {
+                    "name": "Cancelable",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    cancelable: true,\n    cancelButtonLabel: 'Abort Request',\n    title: 'Long-running Export Task',\n    subtitle: 'Generating PDF report with analytics charts...',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[350px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [cancelable]=\"cancelable\"\n          [cancelButtonLabel]=\"cancelButtonLabel\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          (cancelled)=\"cancelled($event)\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const cancelBtn = canvas.getByRole('button', { name: /Abort Request/i });\n    await expect(cancelBtn).toBeInTheDocument();\n\n    await userEvent.click(cancelBtn);\n    await expect(args.cancelled).toHaveBeenCalled();\n  },\n}"
+                },
+                {
+                    "name": "DarkTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'dark',\n    title: 'Executing Migration Script',\n    subtitle: 'Updating database schemas and indexing records...',\n    spinnerType: 'dots',\n    spinnerColor: 'accent',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-950 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n          [spinnerColor]=\"spinnerColor\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Executing Migration Script');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'Processing API Request',\n    subtitle: 'Please wait while we sync your dataset with the cloud server.',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Processing API Request');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "DotsSpinner",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    spinnerType: 'dots',\n    title: 'Saving Changes',\n    subtitle: 'Synchronizing user profile details...',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [spinnerType]=\"spinnerType\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Saving Changes');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "GlassTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'glass',\n    title: 'Connecting to Payment Gateway',\n    subtitle: 'Securing transaction payload...',\n    spinnerType: 'ring',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-gradient-to-r from-blue-600 to-indigo-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Connecting to Payment Gateway');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "InteractionBlocked",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'API Request in Progress',\n    subtitle: 'Notice how background elements are blocked while active.',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative p-8 bg-slate-100 rounded-3xl min-h-[350px] space-y-4 overflow-hidden\">\n        <h3 class=\"text-xl font-bold text-slate-800\">Background Form Page</h3>\n        <p class=\"text-sm text-slate-600\">Simulated page behind the loader backdrop.</p>\n        <div class=\"flex gap-3\">\n          <button id=\"bg-btn-1\" class=\"px-4 py-2 bg-brand-primary text-white rounded-lg\">Background Action</button>\n          <input type=\"text\" placeholder=\"Form input...\" class=\"p-2 border rounded-lg bg-white\" />\n        </div>\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('API Request in Progress');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "LightTheme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    theme: 'light',\n    title: 'Synchronizing Database',\n    subtitle: 'Refreshing local cache data...',\n    spinnerType: 'spinner',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[320px] bg-slate-100 rounded-2xl overflow-hidden border border-slate-200\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [theme]=\"theme\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Synchronizing Database');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<LoaderComponent>",
+                    "defaultValue": "{\n  title: 'Example/Loader',\n  component: LoaderComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    mode: {\n      control: 'select',\n      options: ['fullscreen', 'overlay', 'inline'],\n    },\n    theme: {\n      control: 'select',\n      options: ['glass', 'light', 'dark'],\n    },\n    spinnerType: {\n      control: 'select',\n      options: ['ring', 'spinner', 'dots', 'bars'],\n    },\n    spinnerColor: {\n      control: 'select',\n      options: ['primary', 'secondary', 'white', 'accent', 'success'],\n    },\n    progress: {\n      control: { type: 'range', min: 0, max: 100, step: 1 },\n    },\n  },\n  args: {\n    cancelled: fn(),\n  },\n}"
+                },
+                {
+                    "name": "WithProgress",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    active: true,\n    mode: 'overlay',\n    title: 'Uploading Media Files',\n    subtitle: 'Transferring assets to storage bucket. Do not close this browser tab.',\n    progress: 72,\n    spinnerType: 'ring',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <div class=\"relative w-full h-[350px] bg-slate-900 rounded-2xl overflow-hidden\">\n        <storybook-loader\n          [active]=\"active\"\n          [mode]=\"mode\"\n          [title]=\"title\"\n          [subtitle]=\"subtitle\"\n          [progress]=\"progress\"\n          [spinnerType]=\"spinnerType\"\n        ></storybook-loader>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const progressText = canvas.getByText('72%');\n    await expect(progressText).toBeInTheDocument();\n  },\n}"
+                }
+            ],
             "projects/ui-components/src/stories/colors.stories.ts": [
                 {
                     "name": "ColorPalette",
@@ -1302,22 +2062,44 @@
                     "type": "Story",
                     "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Get Started/i });\n    await userEvent.click(button);\n    await expect(args.onClick).toHaveBeenCalled();\n  },\n}"
                 }
-            ],
-            "projects/ui-components/.storybook/preview.ts": [
+            ]
+        },
+        "groupedFunctions": {
+            "projects/ui-components/src/stories/loader.component.ts": [
                 {
-                    "name": "preview",
+                    "name": "isInline",
+                    "file": "projects/ui-components/src/stories/loader.component.ts",
                     "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/ui-components/.storybook/preview.ts",
+                    "subtype": "function",
                     "coverageIgnore": false,
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "type": "Preview",
-                    "defaultValue": "{\r\n  parameters: {\r\n    controls: {\r\n      matchers: {\r\n        color: /(background|color)$/i,\r\n        date: /Date$/i,\r\n      },\r\n    },\r\n\r\n    a11y: {\r\n      // 'todo' - show a11y violations in the test UI only\r\n      // 'error' - fail CI on a11y violations\r\n      // 'off' - skip a11y checks entirely\r\n      test: 'todo',\r\n    },\r\n  },\r\n}"
+                    "rawdescription": "",
+                    "description": "",
+                    "displayName": "isInline",
+                    "args": [
+                        {
+                            "name": "mode",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "returnType": "boolean",
+                    "jsdoctags": [
+                        {
+                            "name": "mode",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
                 }
             ]
         },
-        "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
             "projects/ui-components/src/stories/button.stories.ts": [
@@ -1364,6 +2146,36 @@
                     "description": "",
                     "kind": 184
                 }
+            ],
+            "projects/ui-components/src/stories/loader.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<LoaderComponent>",
+                    "file": "projects/ui-components/src/stories/loader.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-components/src/stories/spinner.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<SpinnerComponent>",
+                    "file": "projects/ui-components/src/stories/spinner.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
             ]
         }
     },
@@ -1376,16 +2188,6 @@
         "count": 0,
         "status": "low",
         "files": [
-            {
-                "filePath": "projects/ui-components/.storybook/preview.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "preview",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
             {
                 "filePath": "projects/ui-components/src/lib/ui-components.ts",
                 "type": "component",
@@ -1683,6 +2485,214 @@
             },
             {
                 "filePath": "projects/ui-components/src/stories/colors.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "LoaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/12",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.component.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "isInline",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Cancelable",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DarkTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DotsSpinner",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "GlassTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "InteractionBlocked",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LightTheme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithProgress",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/loader.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SpinnerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "BarsVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "ColorsShowcase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DotsVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "RingGlowVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SizesShowcase",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/spinner.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",

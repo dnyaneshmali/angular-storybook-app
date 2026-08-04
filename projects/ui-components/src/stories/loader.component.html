@@ -1,0 +1,60 @@
+@if (active()) {
+  <div
+    [class]="backdropClass()"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Loading indicator"
+  >
+    <!-- Centered Clean Loader Layout (No Card Container Box) -->
+    <div class="loader-content max-w-sm w-full flex flex-col items-center text-center space-y-6">
+      <!-- Spinner Visual -->
+      <div class="flex items-center justify-center">
+        <storybook-spinner
+          [type]="spinnerType()"
+          [color]="spinnerColor()"
+          size="xlarge"
+        ></storybook-spinner>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <div class="space-y-2 max-w-xs">
+        <h3 class="text-xl font-extrabold tracking-tight">
+          {{ title() }}
+        </h3>
+        @if (subtitle()) {
+          <p [class]="'text-xs leading-relaxed ' + (theme() === 'light' ? 'text-slate-500' : 'text-slate-300')">
+            {{ subtitle() }}
+          </p>
+        }
+      </div>
+
+      <!-- Optional Progress Bar -->
+      @if (boundedProgress() !== null) {
+        <div class="w-full max-w-xs space-y-2 pt-2">
+          <div class="flex justify-between items-center text-xs font-semibold">
+            <span [class]="theme() === 'light' ? 'text-slate-500' : 'text-slate-400'">Progress</span>
+            <span class="font-mono text-brand-primary">{{ boundedProgress() }}%</span>
+          </div>
+          <div [class]="'w-full rounded-full h-2 overflow-hidden border ' + (theme() === 'light' ? 'bg-slate-100 border-slate-200' : 'bg-slate-800 border-slate-700')">
+            <div
+              class="bg-brand-primary h-full rounded-full transition-all duration-300 ease-out"
+              [style.width.%]="boundedProgress()"
+            ></div>
+          </div>
+        </div>
+      }
+
+      <!-- Optional Cancel Button -->
+      @if (cancelable()) {
+        <div class="pt-2">
+          <storybook-button
+            [primary]="false"
+            [label]="cancelButtonLabel()"
+            size="small"
+            (onClick)="handleCancel($event)"
+          ></storybook-button>
+        </div>
+      }
+    </div>
+  </div>
+}

@@ -1,0 +1,51 @@
+/* Custom Animations for SpinnerComponent */
+
+/* Bouncing Dots Animation */
+@keyframes spinner-bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.3;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.spinner-dot-1 {
+  animation: spinner-bounce 1.4s infinite ease-in-out 0s;
+}
+
+.spinner-dot-2 {
+  animation: spinner-bounce 1.4s infinite ease-in-out 0.2s;
+}
+
+.spinner-dot-3 {
+  animation: spinner-bounce 1.4s infinite ease-in-out 0.4s;
+}
+
+/* Equalizer Wave Bars Animation */
+@keyframes spinner-wave {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1);
+  }
+}
+
+.spinner-bar-1 {
+  animation: spinner-wave 1.2s infinite ease-in-out 0s;
+}
+
+.spinner-bar-2 {
+  animation: spinner-wave 1.2s infinite ease-in-out 0.15s;
+}
+
+.spinner-bar-3 {
+  animation: spinner-wave 1.2s infinite ease-in-out 0.3s;
+}
+
+.spinner-bar-4 {
+  animation: spinner-wave 1.2s infinite ease-in-out 0.45s;
+}
