@@ -90,7 +90,7 @@
     "components": [
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-d6624abaef47ed64330e461da54c2cb2ed8e04153f3a0a570ff03d88f08baa6fa9f1e78d508fcc4f8976a11cc1500afa4c44d28a2f6181c6a7730e65e8d28d1a",
+            "id": "component-ButtonComponent-9cba47145345b0495d40bab5c6e41c9003b61bc2999a0472aeb51224c10efa8392e8775d4163cb03d2f0d636da640d03df6e34e78ca602b8eb7dadd30f7de23f",
             "file": "projects/ui-components/src/stories/button.component.ts",
             "changeDetection": "ChangeDetectionStrategy.OnPush",
             "encapsulation": [
@@ -121,7 +121,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
+                    "line": 15,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -135,7 +135,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 15,
+                    "line": 18,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -148,7 +148,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 20,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -162,7 +162,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 14,
+                    "line": 17,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -176,7 +176,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 16,
+                    "line": 19,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -190,7 +190,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 11,
+                    "line": 14,
                     "rawdescription": "\n",
                     "required": false
                 },
@@ -204,7 +204,7 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
-                    "line": 13,
+                    "line": 16,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -219,7 +219,298 @@
                     "indexKey": "",
                     "optional": false,
                     "description": "",
+                    "line": 22,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "sanitizer",
+                    "coverageIgnore": false,
+                    "defaultValue": "inject(DomSanitizer)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "rawdescription": "\n",
+                    "modifierKind": [
+                        123,
+                        148
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "coverageIgnore": false,
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, input, output, computed, ViewEncapsulation, inject } from '@angular/core';\nimport { DomSanitizer, SafeHtml } from '@angular/platform-browser';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class ButtonComponent {\n  private readonly sanitizer = inject(DomSanitizer);\n\n  primary = input<boolean>(false);\n  backgroundColor = input<string>();\n  size = input<'small' | 'medium' | 'large'>('medium');\n  label = input<string>('Button');\n  disabled = input<boolean>(false);\n  loading = input<boolean>(false);\n  icon = input<string>(); // e.g. 'search', 'check', 'arrow-right', 'download', 'plus'\n\n  onClick = output<Event>();\n\n  /** @ignore */\n  protected readonly buttonClasses = computed(() => {\n    const common = 'inline-flex items-center justify-center gap-2 cursor-pointer font-sans font-semibold rounded-lg transition-all duration-200 active:scale-97 outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none';\n    \n    const sizeMap = {\n      small: 'px-3.5 py-2 text-xs',\n      medium: 'px-4.5 py-2.5 text-sm',\n      large: 'px-6 py-3 text-base'\n    };\n    const sizeClass = sizeMap[this.size()];\n\n    const modeClass = this.primary()\n      ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/25 hover:bg-brand-primary-hover hover:shadow-lg'\n      : 'border border-brand-secondary-border bg-white text-brand-secondary shadow-sm hover:bg-slate-50 hover:border-slate-300';\n\n    return `${common} ${sizeClass} ${modeClass}`;\n  });\n\n  /** @ignore */\n  protected readonly svgIcon = computed<SafeHtml | string>(() => {\n    const name = this.icon();\n    if (!name) return '';\n    const icons: Record<string, string> = {\n      'search': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line></svg>',\n      'check': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg>',\n      'arrow-right': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line><polyline points=\"12 5 19 12 12 19\"></polyline></svg>',\n      'download': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path><polyline points=\"7 10 12 15 17 10\"></polyline><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"></line></svg>',\n      'plus': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line></svg>'\n    };\n    const rawSvg = icons[name];\n    return rawSvg ? this.sanitizer.bypassSecurityTrustHtml(rawSvg) : '';\n  });\n\n  /** @ignore */\n  protected handleClick(event: Event) {\n    if (!this.disabled() && !this.loading()) {\n      this.onClick.emit(event);\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "/* Empty: Styled completely using TailwindCSS v4 utility classes */\r\n",
+                    "styleUrl": "./button.css"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "relationships": {
+                "incoming": [
+                    {
+                        "name": "CardComponent",
+                        "type": "component"
+                    }
+                ],
+                "outgoing": []
+            },
+            "templateData": "<button\n  type=\"button\"\n  [disabled]=\"disabled() || loading()\"\n  (click)=\"handleClick($event)\"\n  [class]=\"buttonClasses()\"\n  [style.background-color]=\"backgroundColor()\"\n>\n  @if (loading()) {\n    <span class=\"inline-block w-3.5 h-3.5 border-2 border-current border-t-transparent rounded-full animate-spin\"></span>\n  }\n  \n  @if (icon() && !loading()) {\n    <span class=\"inline-flex items-center justify-center w-4 h-4\" [innerHTML]=\"svgIcon()\"></span>\n  }\n  \n  <span>{{ label() }}</span>\n</button>\n"
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-4910c6430fbe45a491876740552a7fd85381ca6217e027530ec3f31a1c07df1ae83f561a37d71c65a7cb67b93776a6a33bfd7372e7de76954a10d7dc2624cda2",
+            "file": "projects/ui-components/src/stories/card.component.ts",
+            "changeDetection": "ChangeDetectionStrategy.OnPush",
+            "encapsulation": [
+                "ViewEncapsulation.None"
+            ],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-card",
+            "styleUrls": [
+                "./card.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "templateVariables": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "badge",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "description",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "disabled",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "height",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "imageAlt",
+                    "coverageIgnore": false,
+                    "defaultValue": "'Card image'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 17,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "imageUrl",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "loading",
+                    "coverageIgnore": false,
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 26,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "padding",
+                    "coverageIgnore": false,
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"none\" | \"small\" | \"medium\" | \"large\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "primaryButtonLabel",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "secondaryButtonLabel",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "subtitle",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "title",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "variant",
+                    "coverageIgnore": false,
+                    "defaultValue": "'elevated'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"elevated\" | \"outlined\" | \"flat\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
                     "line": 19,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "width",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20,
+                    "rawdescription": "\n",
+                    "required": false
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "primaryAction",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Event",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 28,
+                    "rawdescription": "\n",
+                    "required": false
+                },
+                {
+                    "name": "secondaryAction",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Event",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 29,
                     "rawdescription": "\n",
                     "required": false
                 }
@@ -232,25 +523,35 @@
             "hostBindings": [],
             "hostListeners": [],
             "standalone": true,
-            "imports": [],
+            "imports": [
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, input, output, computed, ViewEncapsulation } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  standalone: true,\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class ButtonComponent {\n  primary = input<boolean>(false);\n  backgroundColor = input<string>();\n  size = input<'small' | 'medium' | 'large'>('medium');\n  label = input<string>('Button');\n  disabled = input<boolean>(false);\n  loading = input<boolean>(false);\n  icon = input<string>(); // e.g. 'search', 'check', 'arrow-right', 'download', 'plus'\n\n  onClick = output<Event>();\n\n  /** @ignore */\n  protected readonly buttonClasses = computed(() => {\n    const common = 'inline-flex items-center justify-center gap-2 cursor-pointer font-sans font-semibold rounded-lg transition-all duration-200 active:scale-97 outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none';\n    \n    const sizeMap = {\n      small: 'px-3.5 py-2 text-xs',\n      medium: 'px-4.5 py-2.5 text-sm',\n      large: 'px-6 py-3 text-base'\n    };\n    const sizeClass = sizeMap[this.size()];\n\n    const modeClass = this.primary()\n      ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/25 hover:bg-brand-primary-hover hover:shadow-lg'\n      : 'border border-brand-secondary-border bg-white text-brand-secondary shadow-sm hover:bg-slate-50 hover:border-slate-300';\n\n    return `${common} ${sizeClass} ${modeClass}`;\n  });\n\n  /** @ignore */\n  protected readonly svgIcon = computed(() => {\n    const name = this.icon();\n    if (!name) return '';\n    // Let's provide a set of beautiful SVG icons\n    const icons: Record<string, string> = {\n      'search': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"></circle><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"></line></svg>',\n      'check': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"></polyline></svg>',\n      'arrow-right': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line><polyline points=\"12 5 19 12 12 19\"></polyline></svg>',\n      'download': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path><polyline points=\"7 10 12 15 17 10\"></polyline><line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"></line></svg>',\n      'plus': '<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"></line><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line></svg>'\n    };\n    return icons[name] || '';\n  });\n\n  /** @ignore */\n  protected handleClick(event: Event) {\n    if (!this.disabled() && !this.loading()) {\n      this.onClick.emit(event);\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, input, output, computed, ViewEncapsulation } from '@angular/core';\nimport { ButtonComponent } from './button.component';\n\n@Component({\n  selector: 'storybook-card',\n  standalone: true,\n  imports: [ButtonComponent],\n  templateUrl: './card.component.html',\n  styleUrls: ['./card.css'],\n  encapsulation: ViewEncapsulation.None,\n})\nexport class CardComponent {\n  title = input<string>();\n  subtitle = input<string>();\n  description = input<string>();\n  imageUrl = input<string>();\n  imageAlt = input<string>('Card image');\n  badge = input<string>();\n  variant = input<'elevated' | 'outlined' | 'flat'>('elevated');\n  width = input<string>();\n  height = input<string>();\n  padding = input<'none' | 'small' | 'medium' | 'large'>('medium');\n  primaryButtonLabel = input<string>();\n  secondaryButtonLabel = input<string>();\n  disabled = input<boolean>(false);\n  loading = input<boolean>(false);\n\n  primaryAction = output<Event>();\n  secondaryAction = output<Event>();\n\n  /** @ignore */\n  protected readonly cardClasses = computed(() => {\n    const common = 'rounded-2xl flex flex-col overflow-hidden transition-all duration-300 relative';\n\n    const variantMap = {\n      elevated: 'bg-white border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-0.5',\n      outlined: 'bg-white border-2 border-brand-secondary-border shadow-none hover:border-slate-300',\n      flat: 'bg-slate-50 border border-slate-100/60 shadow-none hover:bg-slate-100/80',\n    };\n\n    const variantClass = variantMap[this.variant()] || variantMap.elevated;\n    const disabledClass = this.disabled() ? 'opacity-60 pointer-events-none' : '';\n\n    return `${common} ${variantClass} ${disabledClass}`.trim();\n  });\n\n  /** @ignore */\n  protected readonly contentPaddingClass = computed(() => {\n    const paddingMap = {\n      none: 'p-0',\n      small: 'p-4',\n      medium: 'p-6',\n      large: 'p-8',\n    };\n    return paddingMap[this.padding()] || paddingMap.medium;\n  });\n\n  /** @ignore */\n  protected readonly cardStyles = computed(() => {\n    const styles: Record<string, string> = {};\n    if (this.width()) {\n      styles['width'] = this.width()!;\n    }\n    if (this.height()) {\n      styles['height'] = this.height()!;\n    }\n    return styles;\n  });\n\n  /** @ignore */\n  protected handlePrimaryClick(event: Event) {\n    if (!this.disabled() && !this.loading()) {\n      this.primaryAction.emit(event);\n    }\n  }\n\n  /** @ignore */\n  protected handleSecondaryClick(event: Event) {\n    if (!this.disabled() && !this.loading()) {\n      this.secondaryAction.emit(event);\n    }\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "/* Empty: Styled completely using TailwindCSS v4 utility classes */\r\n",
-                    "styleUrl": "./button.css"
+                    "data": "/* Custom styles or animation helpers for CardComponent */\n.card-skeleton {\n  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);\n  background-size: 200% 100%;\n  animation: card-skeleton-shimmer 1.5s infinite;\n}\n\n@keyframes card-skeleton-shimmer {\n  0% {\n    background-position: 200% 0;\n  }\n  100% {\n    background-position: -200% 0;\n  }\n}\n",
+                    "styleUrl": "./card.css"
                 }
             ],
             "stylesData": "",
             "extends": [],
             "relationships": {
                 "incoming": [],
-                "outgoing": []
+                "outgoing": [
+                    {
+                        "name": "ButtonComponent",
+                        "type": "component"
+                    }
+                ]
             },
-            "templateData": "<button\n  type=\"button\"\n  [disabled]=\"disabled() || loading()\"\n  (click)=\"handleClick($event)\"\n  [class]=\"buttonClasses()\"\n  [style.background-color]=\"backgroundColor()\"\n>\n  @if (loading()) {\n    <span class=\"inline-block w-3.5 h-3.5 border-2 border-current border-t-transparent rounded-full animate-spin\"></span>\n  }\n  \n  @if (icon() && !loading()) {\n    <span class=\"inline-flex items-center justify-center w-4 h-4\" [innerHTML]=\"svgIcon()\"></span>\n  }\n  \n  <span>{{ label() }}</span>\n</button>\n"
+            "templateData": "<div [class]=\"cardClasses()\" [style]=\"cardStyles()\">\n  @if (loading()) {\n    <!-- Skeleton loader state -->\n    <div class=\"animate-pulse space-y-4 p-6 w-full h-full flex flex-col justify-between\">\n      <div class=\"space-y-3\">\n        <div class=\"h-36 bg-slate-200 rounded-xl w-full mb-4\"></div>\n        <div class=\"h-3 bg-slate-200 rounded w-1/4\"></div>\n        <div class=\"h-6 bg-slate-200 rounded w-3/4\"></div>\n        <div class=\"h-3.5 bg-slate-200 rounded w-full\"></div>\n        <div class=\"h-3.5 bg-slate-200 rounded w-5/6\"></div>\n      </div>\n      <div class=\"pt-4 flex gap-3\">\n        <div class=\"h-9 bg-slate-200 rounded-lg w-28\"></div>\n        <div class=\"h-9 bg-slate-200 rounded-lg w-24\"></div>\n      </div>\n    </div>\n  } @else {\n    <!-- Cover Image with Badge Overlay -->\n    @if (imageUrl()) {\n      <div class=\"relative w-full overflow-hidden aspect-video bg-slate-100\">\n        <img\n          [src]=\"imageUrl()\"\n          [alt]=\"imageAlt()\"\n          class=\"w-full h-full object-cover transition-transform duration-500 hover:scale-105\"\n        />\n        @if (badge()) {\n          <span\n            class=\"absolute top-3 right-3 px-3 py-1 text-xs font-semibold tracking-wider text-white uppercase bg-brand-primary/90 backdrop-blur-md rounded-full shadow-sm\"\n          >\n            {{ badge() }}\n          </span>\n        }\n      </div>\n    } @else if (badge()) {\n      <div class=\"absolute top-4 right-4 z-10\">\n        <span\n          class=\"px-3 py-1 text-xs font-semibold tracking-wider text-brand-primary bg-brand-primary-light rounded-full\"\n        >\n          {{ badge() }}\n        </span>\n      </div>\n    }\n\n    <!-- Content Area -->\n    <div [class]=\"'flex-1 flex flex-col justify-between ' + contentPaddingClass()\">\n      <div class=\"space-y-2\">\n        @if (subtitle()) {\n          <p class=\"text-xs font-semibold tracking-wider uppercase text-brand-secondary-muted\">\n            {{ subtitle() }}\n          </p>\n        }\n\n        @if (title()) {\n          <h3 class=\"text-xl font-bold text-brand-secondary tracking-tight\">\n            {{ title() }}\n          </h3>\n        }\n\n        @if (description()) {\n          <p class=\"text-sm text-slate-600 leading-relaxed\">\n            {{ description() }}\n          </p>\n        }\n\n        <!-- Custom Content Projection Slot -->\n        <ng-content></ng-content>\n      </div>\n\n      <!-- Action Buttons Footer -->\n      @if (primaryButtonLabel() || secondaryButtonLabel()) {\n        <div class=\"pt-6 mt-4 border-t border-slate-100 flex items-center gap-3\">\n          @if (primaryButtonLabel()) {\n            <storybook-button\n              [primary]=\"true\"\n              [label]=\"primaryButtonLabel()!\"\n              [disabled]=\"disabled()\"\n              (onClick)=\"handlePrimaryClick($event)\"\n            ></storybook-button>\n          }\n\n          @if (secondaryButtonLabel()) {\n            <storybook-button\n              [primary]=\"false\"\n              [label]=\"secondaryButtonLabel()!\"\n              [disabled]=\"disabled()\"\n              (onClick)=\"handleSecondaryClick($event)\"\n            ></storybook-button>\n          }\n        </div>\n      }\n    </div>\n  }\n</div>\n"
         },
         {
             "name": "ColorsComponent",
@@ -446,6 +747,28 @@
                 "defaultValue": "{}"
             },
             {
+                "name": "CustomWidthHeight",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Custom Dimension Card',\n    subtitle: 'Fixed Size',\n    description: 'Configured with an explicit width of 420px and height of 350px.',\n    width: '420px',\n    height: '350px',\n    primaryButtonLabel: 'Confirm',\n    secondaryButtonLabel: 'Cancel',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Custom Dimension Card');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "Default",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Standard Card Title',\n    subtitle: 'Overview',\n    description: 'This is a standard card component designed with Tailwind CSS, supporting clean typography and flexible layouts.',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Standard Card Title');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
+            },
+            {
                 "name": "Disabled",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -454,7 +777,18 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Disabled Button/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
+            },
+            {
+                "name": "Flat",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'flat',\n    title: 'Flat Card Style',\n    subtitle: 'Minimal',\n    description: 'Subtle background container with zero drop shadow for minimalist interfaces.',\n    primaryButtonLabel: 'Action',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Flat Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "IconAndLoading",
@@ -465,7 +799,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Submitting/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
             },
             {
                 "name": "Large",
@@ -476,7 +810,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Large Button/i });\n    await expect(button).toHaveClass('px-6');\n  },\n}"
             },
             {
                 "name": "Loading",
@@ -487,7 +821,18 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Loading Button/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
+            },
+            {
+                "name": "LoadingState",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    loading: true,\n    width: '360px',\n    height: '320px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.queryByText('Standard Card Title');\n    await expect(title).toBeNull();\n  },\n}"
             },
             {
                 "name": "Medium",
@@ -498,7 +843,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Medium Button/i });\n    await expect(button).toHaveClass('px-4.5');\n  },\n}"
             },
             {
                 "name": "meta",
@@ -515,12 +860,34 @@
                 "name": "meta",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Meta<CardComponent>",
+                "defaultValue": "{\n  title: 'Example/Card',\n  component: CardComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['elevated', 'outlined', 'flat'],\n    },\n    padding: {\n      control: 'select',\n      options: ['none', 'small', 'medium', 'large'],\n    },\n    width: { control: 'text' },\n    height: { control: 'text' },\n  },\n  args: {\n    primaryAction: fn(),\n    secondaryAction: fn(),\n  },\n}"
+            },
+            {
+                "name": "meta",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "projects/ui-components/src/stories/colors.stories.ts",
                 "coverageIgnore": false,
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Meta<ColorsComponent>",
                 "defaultValue": "{\n  title: 'Design System/Colors',\n  component: ColorsComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Interactive reference grid for all corporate design token colors. Click on variable name or hex value to copy to clipboard.',\n      },\n    },\n  },\n}"
+            },
+            {
+                "name": "Outlined",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    variant: 'outlined',\n    title: 'Outlined Card Style',\n    subtitle: 'Bordered',\n    description: 'Features a distinct border style with clean background integration.',\n    primaryButtonLabel: 'Select Plan',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Outlined Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "preview",
@@ -542,7 +909,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Primary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('bg-brand-primary');\n  },\n}"
             },
             {
                 "name": "Secondary",
@@ -553,7 +920,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Secondary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('border');\n  },\n}"
             },
             {
                 "name": "Small",
@@ -564,7 +931,40 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Small Button/i });\n    await expect(button).toHaveClass('px-3.5');\n  },\n}"
+            },
+            {
+                "name": "WithBadge",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Pro Feature Unlocked',\n    subtitle: 'Subscription',\n    description: 'Access advanced analytics, export tools, and priority team support.',\n    badge: 'PRO',\n    primaryButtonLabel: 'Upgrade Now',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const badge = canvas.getByText('PRO');\n    await expect(badge).toBeInTheDocument();\n  },\n}"
+            },
+            {
+                "name": "WithButtons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Interactive Project Card',\n    subtitle: 'Workspace',\n    description: 'Manage project configurations, component libraries, and Storybook documentation effortlessly.',\n    primaryButtonLabel: 'Get Started',\n    secondaryButtonLabel: 'View Details',\n    width: '380px',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const primaryBtn = canvas.getByRole('button', { name: /Get Started/i });\n    const secondaryBtn = canvas.getByRole('button', { name: /View Details/i });\n\n    await expect(primaryBtn).toBeInTheDocument();\n    await expect(secondaryBtn).toBeInTheDocument();\n\n    await userEvent.click(primaryBtn);\n    await expect(args.primaryAction).toHaveBeenCalled();\n\n    await userEvent.click(secondaryBtn);\n    await expect(args.secondaryAction).toHaveBeenCalled();\n  },\n}"
+            },
+            {
+                "name": "WithHeaderImage",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Design System Showcase',\n    subtitle: 'UI Kit',\n    description: 'Explore curated component libraries with custom themes, storybook integration, and unit tests.',\n    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',\n    imageAlt: 'Abstract design pattern',\n    badge: 'Featured',\n    primaryButtonLabel: 'Explore',\n    secondaryButtonLabel: 'Docs',\n    width: '380px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const badge = canvas.getByText('Featured');\n    await expect(badge).toBeInTheDocument();\n\n    const img = canvas.getByRole('img');\n    await expect(img).toBeInTheDocument();\n  },\n}"
             },
             {
                 "name": "WithIcon",
@@ -575,7 +975,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Search/i });\n    await expect(button).toBeInTheDocument();\n    const svg = button.querySelector('svg');\n    await expect(svg).toBeTruthy();\n  },\n}"
             },
             {
                 "name": "WithIconPrimary",
@@ -586,7 +986,18 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n}"
+                "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Get Started/i });\n    await userEvent.click(button);\n    await expect(args.onClick).toHaveBeenCalled();\n  },\n}"
+            },
+            {
+                "name": "WithoutButtons",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
+                "coverageIgnore": false,
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "{\n  args: {\n    title: 'Information Card',\n    subtitle: 'Read Only',\n    description: 'This card contains purely informational content without any action buttons.',\n    width: '350px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const buttons = canvas.queryAllByRole('button');\n    await expect(buttons.length).toBe(0);\n  },\n}"
             }
         ],
         "functions": [],
@@ -598,6 +1009,19 @@
                 "coverageIgnore": false,
                 "rawtype": "StoryObj<ButtonComponent>",
                 "file": "projects/ui-components/src/stories/button.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "rawdescription": "",
+                "description": "",
+                "kind": 184
+            },
+            {
+                "name": "Story",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "coverageIgnore": false,
+                "rawtype": "StoryObj<CardComponent>",
+                "file": "projects/ui-components/src/stories/card.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "rawdescription": "",
@@ -644,6 +1068,118 @@
                     "defaultValue": "{\n  title: 'Design System/Colors',\n  component: ColorsComponent,\n  parameters: {\n    layout: 'fullscreen',\n    docs: {\n      description: {\n        component: 'Interactive reference grid for all corporate design token colors. Click on variable name or hex value to copy to clipboard.',\n      },\n    },\n  },\n}"
                 }
             ],
+            "projects/ui-components/src/stories/card.stories.ts": [
+                {
+                    "name": "CustomWidthHeight",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Custom Dimension Card',\n    subtitle: 'Fixed Size',\n    description: 'Configured with an explicit width of 420px and height of 350px.',\n    width: '420px',\n    height: '350px',\n    primaryButtonLabel: 'Confirm',\n    secondaryButtonLabel: 'Cancel',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Custom Dimension Card');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "Default",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Standard Card Title',\n    subtitle: 'Overview',\n    description: 'This is a standard card component designed with Tailwind CSS, supporting clean typography and flexible layouts.',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const heading = canvas.getByText('Standard Card Title');\n    await expect(heading).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "Flat",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'flat',\n    title: 'Flat Card Style',\n    subtitle: 'Minimal',\n    description: 'Subtle background container with zero drop shadow for minimalist interfaces.',\n    primaryButtonLabel: 'Action',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Flat Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "LoadingState",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    loading: true,\n    width: '360px',\n    height: '320px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.queryByText('Standard Card Title');\n    await expect(title).toBeNull();\n  },\n}"
+                },
+                {
+                    "name": "meta",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Meta<CardComponent>",
+                    "defaultValue": "{\n  title: 'Example/Card',\n  component: CardComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['elevated', 'outlined', 'flat'],\n    },\n    padding: {\n      control: 'select',\n      options: ['none', 'small', 'medium', 'large'],\n    },\n    width: { control: 'text' },\n    height: { control: 'text' },\n  },\n  args: {\n    primaryAction: fn(),\n    secondaryAction: fn(),\n  },\n}"
+                },
+                {
+                    "name": "Outlined",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    variant: 'outlined',\n    title: 'Outlined Card Style',\n    subtitle: 'Bordered',\n    description: 'Features a distinct border style with clean background integration.',\n    primaryButtonLabel: 'Select Plan',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const title = canvas.getByText('Outlined Card Style');\n    await expect(title).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "WithBadge",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Pro Feature Unlocked',\n    subtitle: 'Subscription',\n    description: 'Access advanced analytics, export tools, and priority team support.',\n    badge: 'PRO',\n    primaryButtonLabel: 'Upgrade Now',\n    width: '360px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const badge = canvas.getByText('PRO');\n    await expect(badge).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "WithButtons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Interactive Project Card',\n    subtitle: 'Workspace',\n    description: 'Manage project configurations, component libraries, and Storybook documentation effortlessly.',\n    primaryButtonLabel: 'Get Started',\n    secondaryButtonLabel: 'View Details',\n    width: '380px',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const primaryBtn = canvas.getByRole('button', { name: /Get Started/i });\n    const secondaryBtn = canvas.getByRole('button', { name: /View Details/i });\n\n    await expect(primaryBtn).toBeInTheDocument();\n    await expect(secondaryBtn).toBeInTheDocument();\n\n    await userEvent.click(primaryBtn);\n    await expect(args.primaryAction).toHaveBeenCalled();\n\n    await userEvent.click(secondaryBtn);\n    await expect(args.secondaryAction).toHaveBeenCalled();\n  },\n}"
+                },
+                {
+                    "name": "WithHeaderImage",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Design System Showcase',\n    subtitle: 'UI Kit',\n    description: 'Explore curated component libraries with custom themes, storybook integration, and unit tests.',\n    imageUrl: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',\n    imageAlt: 'Abstract design pattern',\n    badge: 'Featured',\n    primaryButtonLabel: 'Explore',\n    secondaryButtonLabel: 'Docs',\n    width: '380px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const badge = canvas.getByText('Featured');\n    await expect(badge).toBeInTheDocument();\n\n    const img = canvas.getByRole('img');\n    await expect(img).toBeInTheDocument();\n  },\n}"
+                },
+                {
+                    "name": "WithoutButtons",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
+                    "coverageIgnore": false,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "{\n  args: {\n    title: 'Information Card',\n    subtitle: 'Read Only',\n    description: 'This card contains purely informational content without any action buttons.',\n    width: '350px',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const buttons = canvas.queryAllByRole('button');\n    await expect(buttons.length).toBe(0);\n  },\n}"
+                }
+            ],
             "projects/ui-components/src/stories/button.stories.ts": [
                 {
                     "name": "Disabled",
@@ -654,7 +1190,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    disabled: true,\n    label: 'Disabled Button',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Disabled Button/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
                 },
                 {
                     "name": "IconAndLoading",
@@ -665,7 +1201,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'check',\n    loading: true,\n    label: 'Submitting',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Submitting/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
                 },
                 {
                     "name": "Large",
@@ -676,7 +1212,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'large',\n    label: 'Large Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Large Button/i });\n    await expect(button).toHaveClass('px-6');\n  },\n}"
                 },
                 {
                     "name": "Loading",
@@ -687,7 +1223,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    loading: true,\n    label: 'Loading Button',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Loading Button/i });\n    await expect(button).toBeDisabled();\n    await userEvent.click(button);\n    await expect(args.onClick).not.toHaveBeenCalled();\n  },\n}"
                 },
                 {
                     "name": "Medium",
@@ -698,7 +1234,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'medium',\n    label: 'Medium Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Medium Button/i });\n    await expect(button).toHaveClass('px-4.5');\n  },\n}"
                 },
                 {
                     "name": "meta",
@@ -720,7 +1256,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    label: 'Primary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Primary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('bg-brand-primary');\n  },\n}"
                 },
                 {
                     "name": "Secondary",
@@ -731,7 +1267,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    label: 'Secondary Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Secondary Button/i });\n    await expect(button).toBeInTheDocument();\n    await expect(button).toHaveClass('border');\n  },\n}"
                 },
                 {
                     "name": "Small",
@@ -742,7 +1278,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    size: 'small',\n    label: 'Small Button',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Small Button/i });\n    await expect(button).toHaveClass('px-3.5');\n  },\n}"
                 },
                 {
                     "name": "WithIcon",
@@ -753,7 +1289,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    icon: 'search',\n    label: 'Search',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Search/i });\n    await expect(button).toBeInTheDocument();\n    const svg = button.querySelector('svg');\n    await expect(svg).toBeTruthy();\n  },\n}"
                 },
                 {
                     "name": "WithIconPrimary",
@@ -764,7 +1300,7 @@
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
-                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n}"
+                    "defaultValue": "{\n  args: {\n    primary: true,\n    icon: 'arrow-right',\n    label: 'Get Started',\n  },\n  play: async ({ canvasElement, args }) => {\n    const canvas = within(canvasElement);\n    const button = canvas.getByRole('button', { name: /Get Started/i });\n    await userEvent.click(button);\n    await expect(args.onClick).toHaveBeenCalled();\n  },\n}"
                 }
             ],
             "projects/ui-components/.storybook/preview.ts": [
@@ -792,6 +1328,21 @@
                     "coverageIgnore": false,
                     "rawtype": "StoryObj<ButtonComponent>",
                     "file": "projects/ui-components/src/stories/button.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "",
+                    "description": "",
+                    "kind": 184
+                }
+            ],
+            "projects/ui-components/src/stories/card.stories.ts": [
+                {
+                    "name": "Story",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "coverageIgnore": false,
+                    "rawtype": "StoryObj<CardComponent>",
+                    "file": "projects/ui-components/src/stories/card.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "rawdescription": "",
@@ -850,7 +1401,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/9",
+                "coverageCount": "0/10",
                 "status": "low"
             },
             {
@@ -965,6 +1516,125 @@
             },
             {
                 "filePath": "projects/ui-components/src/stories/button.stories.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "Story",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/17",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "CustomWidthHeight",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Default",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Flat",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "LoadingState",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "meta",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Outlined",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithBadge",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithButtons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithHeaderImage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutButtons",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/ui-components/src/stories/card.stories.ts",
                 "type": "type alias",
                 "linktype": "miscellaneous",
                 "linksubtype": "typealias",
