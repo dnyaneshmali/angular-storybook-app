@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular-vite';
-import { fn } from 'storybook/test';
+import { fn, expect, userEvent, within } from 'storybook/test';
 
 import { ButtonComponent } from './button.component';
 
@@ -33,11 +33,23 @@ export const Primary: Story = {
     primary: true,
     label: 'Primary Button',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Primary Button/i });
+    await expect(button).toBeInTheDocument();
+    await expect(button).toHaveClass('bg-brand-primary');
+  },
 };
 
 export const Secondary: Story = {
   args: {
     label: 'Secondary Button',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Secondary Button/i });
+    await expect(button).toBeInTheDocument();
+    await expect(button).toHaveClass('border');
   },
 };
 
@@ -47,6 +59,11 @@ export const Small: Story = {
     size: 'small',
     label: 'Small Button',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Small Button/i });
+    await expect(button).toHaveClass('px-3.5');
+  },
 };
 
 export const Medium: Story = {
@@ -54,12 +71,22 @@ export const Medium: Story = {
     size: 'medium',
     label: 'Medium Button',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Medium Button/i });
+    await expect(button).toHaveClass('px-4.5');
+  },
 };
 
 export const Large: Story = {
   args: {
     size: 'large',
     label: 'Large Button',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Large Button/i });
+    await expect(button).toHaveClass('px-6');
   },
 };
 
@@ -69,12 +96,26 @@ export const Disabled: Story = {
     disabled: true,
     label: 'Disabled Button',
   },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Disabled Button/i });
+    await expect(button).toBeDisabled();
+    await userEvent.click(button);
+    await expect(args.onClick).not.toHaveBeenCalled();
+  },
 };
 
 export const Loading: Story = {
   args: {
     loading: true,
     label: 'Loading Button',
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Loading Button/i });
+    await expect(button).toBeDisabled();
+    await userEvent.click(button);
+    await expect(args.onClick).not.toHaveBeenCalled();
   },
 };
 
@@ -84,6 +125,13 @@ export const WithIcon: Story = {
     icon: 'search',
     label: 'Search',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Search/i });
+    await expect(button).toBeInTheDocument();
+    const svg = button.querySelector('svg');
+    await expect(svg).toBeTruthy();
+  },
 };
 
 export const WithIconPrimary: Story = {
@@ -91,6 +139,12 @@ export const WithIconPrimary: Story = {
     primary: true,
     icon: 'arrow-right',
     label: 'Get Started',
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Get Started/i });
+    await userEvent.click(button);
+    await expect(args.onClick).toHaveBeenCalled();
   },
 };
 
@@ -100,5 +154,12 @@ export const IconAndLoading: Story = {
     icon: 'check',
     loading: true,
     label: 'Submitting',
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: /Submitting/i });
+    await expect(button).toBeDisabled();
+    await userEvent.click(button);
+    await expect(args.onClick).not.toHaveBeenCalled();
   },
 };
